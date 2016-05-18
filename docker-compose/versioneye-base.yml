@@ -39,7 +39,7 @@ memcached:
 
 # Fuzzy search
 elasticsearch:
-  image: reiz/elasticsearch:0.9.1
+  image: reiz/elasticsearch:0.9.1-1
   container_name: elasticsearch
   restart: always
   volumes:
@@ -47,7 +47,7 @@ elasticsearch:
 
 # Primary DB. The single source of truth!
 mongodb:
-  image: reiz/mongodb:3.2.0
+  image: reiz/mongodb:3.2.0-1
   container_name: mongodb
   restart: always
   volumes:
