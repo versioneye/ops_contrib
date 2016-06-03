@@ -1,4 +1,3 @@
-#!/bin/sh
 #
 # The MIT License (MIT)
 #
@@ -23,26 +22,33 @@
 # SOFTWARE.
 #
 
-# Config
-DOCKER=/usr/bin/docker
-DOCKER_COMPOSE=/usr/local/bin/docker-compose
-DOCKER_COMPOSE_YAML=/root/docker-compose.yml
+# $COMPOSE_PROJECT_NAME sets the prefix for all VMs. Should be set to make the names unique
+# If you want to scale a particular container, comment out the "container_name" property!
 
-LATEST_VERSIONS=`get-latest-versions`
+# Primary DB. The single source of truth!
+mongodb:
+  image: reiz/mongodb:3.2.0-1
+  container_name: mongodb
+  restart: always
+  volumes:
+   - /mnt/mongodb:/data
 
+# Fuzzy search
+elasticsearch:
+  image: reiz/elasticsearch:0.9.1-1
+  container_name: elasticsearch
+  restart: always
+  volumes:
+   - /mnt/elasticsearch:/data
 
-COMPOSE_HTTP_TIMEOUT=180
-COMPOSE_PROJECT_NAME=versioneye
+# AMQ Message Server
+rabbitmq:
+  image: reiz/rabbitmq:3.4.2
+  container_name: rabbitmq
+  restart: always
 
-export COMPOSE_HTTP_TIMEOUT=$COMPOSE_HTTP_TIMEOUT
-export COMPOSE_PROJECT_NAME=$COMPOSE_PROJECT_NAME
-
-for version in `echo "$LATEST_VERSIONS" | sed 's/.*\//VERSION_/' | sed 's/:/=/' | tr '[:lower:]' '[:upper:]'`; do
-    eval "export $version";
-done
-
-for image in $LATEST_VERSIONS; do
-    $DOCKER pull $image
-done
-
-$DOCKER_COMPOSE -f $DOCKER_COMPOSE_YAML up -d
+# Cache
+memcached:
+  image: reiz/memcached:1.4.14
+  container_name: memcached
+  restart: always
