@@ -28,7 +28,7 @@ DOCKER=/usr/bin/docker
 DOCKER_COMPOSE=/usr/local/bin/docker-compose
 DOCKER_COMPOSE_YAML=docker-compose.yml
 
-LATEST_VERSIONS=`get-latest-versions`
+LATEST_VERSIONS=`./get-latest-versions`
 
 
 COMPOSE_HTTP_TIMEOUT=180
