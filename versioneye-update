@@ -39,6 +39,7 @@ export COMPOSE_PROJECT_NAME=$COMPOSE_PROJECT_NAME
 
 for version in `echo "$LATEST_VERSIONS" | sed 's/.*\//VERSION_/' | sed 's/:/=/' | tr '[:lower:]' '[:upper:]'`; do
     eval "export $version";
+    echo "export $version";
 done
 
 for image in $LATEST_VERSIONS; do
