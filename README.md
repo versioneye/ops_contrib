@@ -24,17 +24,27 @@ That will start all 4 Docker containers in deamon mode.
 
 ## Start the VersionEye containers
 
-The next command will start the VersionEye containers. That includes the web application, the API and some background services: 
+The next command will start the VersionEye containers. That includes the web application, the API and some background services:
 
 ```
 ./versioneye-update
 ```
 
-This script will: 
+This script will:
 
  - Fetch the newest versions for the Docker images from the VersionEye API
  - Set some environment variables
- - Pull down the Docker images from Docher Hub 
+ - Pull down the Docker images from Docher Hub
  - Start the Docker containers with docker-compose
 
-If everything goes well you can access the VersionEye web application on `http://localhost:8080`. 
+If everything goes well you can access the VersionEye web application on `http://localhost:8080`.
+
+## Stop the VersionEye containers
+
+With this command the VersionEye containers can be stopped:
+
+```
+./versioneye-stop
+```
+
+That will stop the VersionEye containers, but not the backend services.
