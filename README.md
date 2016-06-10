@@ -48,3 +48,13 @@ With this command the VersionEye containers can be stopped:
 ```
 
 That will stop the VersionEye containers, but not the backend services.
+
+## Stop the VersionEye containers
+
+With this command the running containers can be monitored.
+
+```
+./docker-mon
+```
+
+That will display in real time how much CPU, RAM and IO each containers is using.
