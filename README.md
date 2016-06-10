@@ -69,7 +69,7 @@ For commercial support send a message to `support@versioneye.com`.
 
 ## License
 
-VersionEye-Core is licensed under the MIT license!
+ops_contrib is licensed under the MIT license!
 
 Copyright (c) 2016 VersionEye GmbH
 
