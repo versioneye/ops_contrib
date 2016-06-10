@@ -49,7 +49,7 @@ With this command the VersionEye containers can be stopped:
 
 That will stop the VersionEye containers, but not the backend services.
 
-## Stop the VersionEye containers
+## Monitoring
 
 With this command the running containers can be monitored.
 
