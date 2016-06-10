@@ -2,6 +2,10 @@
 
 Scripts for [VersionEye](https://www.versioneye.com) operations. Everybody can contribute!
 
+## Environment
+
+The scripts in this repository are all tested with Docker for Linux on Ubuntu 14.04.
+
 ## Start backend services for VersionEye
 
 VersionEye is currently using this backend systems:
