@@ -27,7 +27,7 @@
 
 # Primary DB. The single source of truth!
 mongodb:
-  image: reiz/mongodb:3.2.0-1
+  image: versioneye/mongodb:3.2.6
   container_name: mongodb
   restart: always
   volumes:
