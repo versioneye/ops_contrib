@@ -2,7 +2,7 @@
 
 Scripts for [VersionEye](https://www.versioneye.com) operations. Everybody can contribute!
 
-# Start backend services for VersionEye
+## Start backend services for VersionEye
 
 VersionEye is currently using this backend systems:
 
@@ -21,3 +21,20 @@ docker-compose -f versioneye-base.yml up -d
 ```
 
 That will start all 4 Docker containers in deamon mode.
+
+## Start the VersionEye containers
+
+The next command will start the VersionEye containers. That includes the web application, the API and some background services: 
+
+```
+./versioneye-update
+```
+
+This script will: 
+
+ - Fetch the newest versions for the Docker images from the VersionEye API
+ - Set some environment variables
+ - Pull down the Docker images from Docher Hub 
+ - Start the Docker containers with docker-compose
+
+If everything goes well you can access the VersionEye web application on `http://localhost:8080`. 
