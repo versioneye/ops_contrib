@@ -30,16 +30,16 @@ mongodb:
   image: versioneye/mongodb:3.2.6
   container_name: mongodb
   restart: always
-  volumes:
-   - /mnt/mongodb:/data
+  # volumes:
+  #  - /mnt/mongodb:/data
 
 # Fuzzy search
 elasticsearch:
   image: reiz/elasticsearch:0.9.1-1
   container_name: elasticsearch
   restart: always
-  volumes:
-   - /mnt/elasticsearch:/data
+  # volumes:
+  #  - /mnt/elasticsearch:/data
 
 # AMQ Message Server
 rabbitmq:
