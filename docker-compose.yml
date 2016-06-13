@@ -42,8 +42,8 @@ rails_app:
   restart: always
   ports:
    - "8080:8080"
-  volumes:
-   - /mnt/logs:/app/log
+  # volumes:
+  # - /mnt/logs:/app/log
   external_links:
    - rabbitmq:rm
    - memcached:mc
@@ -57,8 +57,8 @@ rails_api:
   restart: always
   ports:
    - "9090:9090"
-  volumes:
-   - /mnt/logs:/app/log
+  # volumes:
+  # - /mnt/logs:/app/log
   external_links:
    - rabbitmq:rm
    - memcached:mc
@@ -70,8 +70,8 @@ tasks:
   image: versioneye/tasks:${VERSION_TASKS}
   container_name: tasks
   restart: always
-  volumes:
-   - /mnt/logs:/app/log
+  # volumes:
+  # - /mnt/logs:/app/log
   external_links:
    - rabbitmq:rm
    - memcached:mc
@@ -83,8 +83,8 @@ crawlj:
   image: versioneye/crawlj:${VERSION_CRAWLJ}
   container_name: crawlj
   restart: always
-  volumes:
-   - /mnt/logs:/mnt/logs
+  # volumes:
+  # - /mnt/logs:/mnt/logs
   external_links:
    - rabbitmq:rm
    - memcached:mc
@@ -96,11 +96,10 @@ crawlj_worker:
   image: versioneye/crawlj_worker:${VERSION_CRAWLJ_WORKER}
   #container_name: crawlj_worker      # Comment in if you don't want to scale the worker
   restart: always
-  volumes:
-   - /mnt/logs:/mnt/logs
+  # volumes:
+  # - /mnt/logs:/mnt/logs
   external_links:
    - rabbitmq:rm
    - memcached:mc
    - elasticsearch:es
    - mongodb:db
-
