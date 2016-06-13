@@ -17,14 +17,17 @@ VersionEye is currently using this backend systems:
 
 They are all available as Docker images from Docker Hub. There is a file `versioneye-base.yml`
 for [Docker Compose](https://docs.docker.com/compose/).
-Maybe you need to adjust the mount volumes for MongoDB and Elasticsearch in the `versioneye-base.yml`.
-Then you can start all backend systems like this:
+You can start all backend systems like this:
 
 ```
 docker-compose -f versioneye-base.yml up -d
 ```
 
 That will start all 4 Docker containers in deamon mode.
+The MongoDB and ElasticSearch container is not persistent! If the Docker containers are
+getting stopped/killed the data is lost. For persistence you need to comment in the
+mount volumes in the `versioneye-base.yml` file and adjust the paths to a directory on the
+host system.
 
 ## Start the VersionEye containers
 
