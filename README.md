@@ -45,6 +45,9 @@ This script will:
  - Start the Docker containers with docker-compose
 
 If everything goes well you can access the VersionEye web application on `http://localhost:8080`.
+If you are using Boot2Docker on Mac OS X the Docker containers are running in an Virtual Machine
+by VirtualBox. In that case you have to find out the IP of your VirtualBox VM and the application
+will be available under the IP of the VM on port 8080.
 
 ## Stop the VersionEye containers
 
