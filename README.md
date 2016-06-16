@@ -61,6 +61,10 @@ ifconfig | less
 
 Usually with the IP of `eth1` you can reach the VM from outside. Use that IP address and port 8080 like this `http://<ETH1_IP>:8080`.
 
+### Docker for Windows
+
+The non native [Docker for Windows](https://docs.docker.com/windows/step_one/) is similar to Boot2Docker on Mac OS X. Please follow the instructions from the above section.
+
 ## Stop the VersionEye containers
 
 With this command the VersionEye containers can be stopped:
