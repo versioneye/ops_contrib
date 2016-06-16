@@ -25,6 +25,15 @@
 
 # Config
 DOCKER=/usr/bin/docker
+echo "Use docker binary at /usr/bin/docker"
+
+# This is for Mac OS X
+if [ -f "/usr/local/bin/docker" ];
+then
+   echo "Found docker binary at /usr/local/bin/docker"
+   DOCKER=/usr/local/bin/docker
+fi
+
 DOCKER_COMPOSE=/usr/local/bin/docker-compose
 DOCKER_COMPOSE_YAML=docker-compose.yml
 

@@ -28,7 +28,7 @@
 DOCKER=/usr/bin/docker
 echo "Use docker binary at /usr/bin/docker"
 
-# This is for Mac OS X
+# This is for Mac OS X - Boot2Docker
 if [ -f "/usr/local/bin/docker" ];
 then
    echo "Found docker binary at /usr/local/bin/docker"
