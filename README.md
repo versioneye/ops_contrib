@@ -29,6 +29,12 @@ getting stopped/killed the data is lost. For persistence you need to comment in 
 mount volumes in the `versioneye-base.yml` file and adjust the paths to a directory on the
 host system.
 
+To stop backend services you can run
+
+```sh
+docker-compose -f versioneye-base.yml down
+```
+
 ## Start the VersionEye containers
 
 The next command will start the VersionEye containers. That includes the web application, the API and some background services:
