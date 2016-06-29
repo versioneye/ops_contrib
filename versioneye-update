@@ -37,7 +37,7 @@ fi
 
 DOCKER_COMPOSE=/usr/bin/docker-compose
 
-if [ -f "/usr/local/bin/docker" ];
+if [ -f "/usr/local/bin/docker-compose" ];
 then
    echo "Found docker-compose binary at /usr/local/bin/docker-compose"
    DOCKER_COMPOSE=/usr/local/bin/docker-compose
