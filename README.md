@@ -46,6 +46,14 @@ This script will:
 
 If everything goes well you can access the VersionEye web application on `http://localhost:8080`.
 
+To initialise the database run this command once: 
+
+```
+docker exec -it tasks /app/init_enterprise.sh
+```
+
+That will create a default user `admin` with a super secret password `admin` and do some other initialising steps. 
+
 ### Boot2Docker on Mac OS X
 
 If you are using [Boot2Docker](http://boot2docker.io/) on Mac OS X the Docker containers are running in an virtual machine
