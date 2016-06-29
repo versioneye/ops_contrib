@@ -35,7 +35,14 @@ then
    DOCKER=/usr/local/bin/docker
 fi
 
-DOCKER_COMPOSE=/usr/local/bin/docker-compose
+DOCKER_COMPOSE=/usr/bin/docker-compose
+
+if [ -f "/usr/local/bin/docker" ];
+then
+   echo "Found docker-compose binary at /usr/local/bin/docker-compose"
+   DOCKER_COMPOSE=/usr/local/bin/docker-compose
+fi
+
 DOCKER_COMPOSE_YAML=docker-compose.yml
 
 LATEST_VERSIONS=`./get-latest-versions`
