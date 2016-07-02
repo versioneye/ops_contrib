@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/bin/bash
 #
 # The MIT License (MIT)
 #
@@ -21,15 +21,18 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-#
 
-import json;
-import urllib;
-
-url="https://www.versioneye.com/docker/remote_images.json";
-f=urllib.urlopen(url);
-dict=json.load(f);
-keys=dict.keys();
-keys.sort();
-for k in keys:
-    print k;
+IMAGES_URL="https://www.versioneye.com/docker/remote_images.json"
+RES=$(curl -s $IMAGES_URL)
+if [ -n "$RES" ]
+then
+    #filters json, removes apostrophes,splits CVS, removes empty line, sorts by name
+    echo $RES | jq 'keys | reduce .[] as $item ("";  .  + $item + ",") | tostring' | \
+            sed -e 's/\"//g' | \
+            tr "," "\n" | \
+            sed '/^\s*$/d' | \
+            sort -d
+else
+ echo "Failed to request remote images at ${IMAGES_URL}"
+ exit 1
+fi
