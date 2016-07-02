@@ -4,7 +4,11 @@ Scripts for [VersionEye](https://www.versioneye.com) operations. Everybody can c
 
 ## Environment
 
-The scripts in this repository are all tested with Docker for Linux on Ubuntu 14.04.
+The scripts in this repository are all tested with Docker for Linux on Ubuntu 14.04. The update and stop scripts require that [jq](https://stedolan.github.io/jq/) is installed. On Ubuntu you can install it like this: 
+
+```
+apt-get install jq
+```
 
 ## Start backend services for VersionEye
 
