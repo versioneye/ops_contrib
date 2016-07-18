@@ -2,9 +2,29 @@
 
 Scripts for [VersionEye](https://www.versioneye.com) operations. Everybody can contribute!
 
+## System requirements
+
+We recommend a minimum resource configuration of:
+ - 2 vCPUS
+ - 4GB of RAM
+ - 100GB of storage
+
+This setup will allow you to get VersionEye of the ground successfully. It's the equivalent to an [AWS `t2-medium`](https://aws.amazon.com/ec2/instance-types/). For more detailed requirements analysis please contact the VersionEye team at `support@versioneye.com`
+
+## Network configuration
+
+The VersionEye host will need the following ports open:
+
+| Port  | Protocol  | Description  |
+|---|---|---|
+| 8080  | HTTP | Web application  |
+| 9090  | HTTP | API endpoint     |
+| 22  | SSH | Host management     |
+
+
 ## Environment
 
-The scripts in this repository are all tested with Docker for Linux on Ubuntu 14.04. The update and stop scripts require that [jq](https://stedolan.github.io/jq/) is installed. On Ubuntu you can install it like this: 
+The scripts in this repository are all tested with Docker for Linux on Ubuntu 14.04. The update and stop scripts require that [jq](https://stedolan.github.io/jq/) is installed. On Ubuntu you can install it like this:
 
 ```
 apt-get install jq
@@ -56,13 +76,13 @@ This script will:
 
 If everything goes well you can access the VersionEye web application on `http://localhost:8080`.
 
-To initialise the database run this command once: 
+To initialise the database run this command once:
 
 ```
 docker exec -it tasks /app/init_enterprise.sh
 ```
 
-That will create a default user `admin` with a super secret password `admin` and do some other initialising steps. 
+That will create a default user `admin` with a super secret password `admin` and do some other initialising steps.
 
 ### Boot2Docker on Mac OS X
 
