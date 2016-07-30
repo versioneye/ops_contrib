@@ -62,12 +62,18 @@ VersionEye is currently using this backend systems:
   - ElasticSearch
   - Memcached
 
-They are all available as Docker images from Docker Hub. There is a file `versioneye-base.yml`
-for [Docker Compose](https://docs.docker.com/compose/).
-You can start all backend systems like this:
+These are all available as Docker images from Docker Hub. To simplify things you can grab the `versioneye-base.yml` on the root of this repository to use with [Docker Compose](https://docs.docker.com/compose/).
+
+Download the `versioneye-base.yml` file:
 
 ```
-docker-compose -f versioneye-base.yml up -d
+curl -L -O https://raw.githubusercontent.com/versioneye/ops_contrib/master/versioneye-base.yml
+```
+
+Start all the backend systems by running:
+
+```
+sudo docker-compose -f versioneye-base.yml up -d
 ```
 
 That will start all 4 Docker containers in deamon mode.
