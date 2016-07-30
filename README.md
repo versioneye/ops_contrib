@@ -67,13 +67,21 @@ VersionEye is currently using this backend systems:
 
 These are all available as Docker images from Docker Hub. To simplify things you can grab the `versioneye-base.yml` on the root of this repository to use with [Docker Compose](https://docs.docker.com/compose/).
 
-Download the `versioneye-base.yml` file:
+Download the `versioneye-base.yml` and the other utility files:
 
 ```
 curl -L -O https://raw.githubusercontent.com/versioneye/ops_contrib/master/versioneye-base.yml
+curl -L -O https://raw.githubusercontent.com/versioneye/ops_contrib/master/versioneye-start
+curl -L -O https://raw.githubusercontent.com/versioneye/ops_contrib/master/versioneye-stop
 ```
 
-Start all the backend systems by running:
+Set write permission to the start and stop scripts:
+
+```
+chmod +x versioneye-start versioneye-stop
+
+```
+Start the docker containers:
 
 ```
 sudo docker-compose -f versioneye-base.yml up -d
@@ -82,10 +90,9 @@ sudo docker-compose -f versioneye-base.yml up -d
 That will start all 4 Docker containers in deamon mode.
 The MongoDB and ElasticSearch container is not persistent! If the Docker containers are
 getting stopped/killed the data is lost. For persistence you need to comment in the
-mount volumes in the `versioneye-base.yml` file and adjust the paths to a directory on the
-host system.
+mount volumes in the `versioneye-base.yml` file and adjust the paths to a directory on the host system.
 
-To stop backend services you can run
+To stop backend services you can run:
 
 ```sh
 docker-compose -f versioneye-base.yml down
