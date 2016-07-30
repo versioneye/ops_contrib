@@ -24,7 +24,10 @@ The VersionEye host will need the following ports open:
 
 ## Environment dependencies
 
-The scripts in this repository are all tested with Docker for Linux on Ubuntu 14.04. The update and stop scripts require that [jq](https://stedolan.github.io/jq/) is installed.
+The scripts in this repository are all tested with Docker for Linux on Ubuntu 14.04. This instalation guide requires that you have the following libraries installed:
+ - jq
+ - docker
+ - docker-compose
 
 ### Installing jq
 
