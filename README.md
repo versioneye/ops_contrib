@@ -71,14 +71,14 @@ Download the `versioneye-base.yml` and the other utility files:
 
 ```
 curl -L -O https://raw.githubusercontent.com/versioneye/ops_contrib/master/versioneye-base.yml
-curl -L -O https://raw.githubusercontent.com/versioneye/ops_contrib/master/versioneye-start
+curl -L -O https://raw.githubusercontent.com/versioneye/ops_contrib/master/versioneye-update
 curl -L -O https://raw.githubusercontent.com/versioneye/ops_contrib/master/versioneye-stop
 ```
 
 Set write permission to the start and stop scripts:
 
 ```
-chmod +x versioneye-start versioneye-stop
+chmod +x versioneye-update versioneye-stop
 
 ```
 Start the docker containers:
