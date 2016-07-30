@@ -6,7 +6,7 @@ Scripts for [VersionEye](https://www.versioneye.com) operations. Everybody can c
 
 Clone this repository and `cd` into it:
 
-`git clone https://github.com/versioneye/ops_contrib.git ** cd ops_contrib`
+`git clone https://github.com/versioneye/ops_contrib.git && cd ops_contrib`
 
 Some of the commands and files below are found on the root of this repository, thus cloning the repository is the easier way to get access to them. Alternatively you can download the files or use the [repository archive](https://github.com/versioneye/ops_contrib/archive/master.zip).
 
