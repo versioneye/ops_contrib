@@ -73,6 +73,7 @@ Download the `versioneye-base.yml` and the other utility files:
 curl -L -O https://raw.githubusercontent.com/versioneye/ops_contrib/master/versioneye-base.yml
 curl -L -O https://raw.githubusercontent.com/versioneye/ops_contrib/master/versioneye-update
 curl -L -O https://raw.githubusercontent.com/versioneye/ops_contrib/master/versioneye-stop
+curl -L -O https://raw.githubusercontent.com/versioneye/ops_contrib/master/docker-compose.yml
 ```
 
 Set write permission to the start and stop scripts:
