@@ -2,6 +2,14 @@
 
 Scripts for [VersionEye](https://www.versioneye.com) operations. Everybody can contribute!
 
+## Starting point
+
+Clone this repository and `cd` into it:
+
+`git clone https://github.com/versioneye/ops_contrib.git ** cd ops_contrib`
+
+Some of the commands and files below are found on the root of this repository, thus cloning the repository is the easier way to get access to them. Alternatively you can download the files or use the [repository archive](https://github.com/versioneye/ops_contrib/archive/master.zip).
+
 ## System requirements
 
 We recommend a minimum resource configuration of:
@@ -65,23 +73,9 @@ VersionEye is currently using this backend systems:
   - ElasticSearch
   - Memcached
 
-These are all available as Docker images from Docker Hub. To simplify things you can grab the `versioneye-base.yml` on the root of this repository to use with [Docker Compose](https://docs.docker.com/compose/).
 
-Download the `versioneye-base.yml` and the other utility files:
+These are all available as Docker images from Docker Hub. This repository contains a file `versioneye-base.yml` for Docker Compose. You can start all backend systems like this:
 
-```
-curl -L -O https://raw.githubusercontent.com/versioneye/ops_contrib/master/versioneye-base.yml
-curl -L -O https://raw.githubusercontent.com/versioneye/ops_contrib/master/versioneye-update
-curl -L -O https://raw.githubusercontent.com/versioneye/ops_contrib/master/versioneye-stop
-curl -L -O https://raw.githubusercontent.com/versioneye/ops_contrib/master/docker-compose.yml
-```
-
-Set write permission to the start and stop scripts:
-
-```
-chmod +x versioneye-update versioneye-stop
-
-```
 Start the docker containers:
 
 ```
