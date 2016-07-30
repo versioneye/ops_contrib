@@ -22,12 +22,35 @@ The VersionEye host will need the following ports open:
 | 22  | SSH | Host management     |
 
 
-## Environment
+## Environment dependencies
 
-The scripts in this repository are all tested with Docker for Linux on Ubuntu 14.04. The update and stop scripts require that [jq](https://stedolan.github.io/jq/) is installed. On Ubuntu you can install it like this:
+The scripts in this repository are all tested with Docker for Linux on Ubuntu 14.04. The update and stop scripts require that [jq](https://stedolan.github.io/jq/) is installed.
 
+### Installing jq
+
+On Ubuntu you can install it by running the following command on the terminal:
 ```
 apt-get install jq
+```
+
+Alternatively you can also check the official [jq docs](https://stedolan.github.io/jq/)
+
+### Installing docker and docker-compose
+
+Follow these guides to install docker and docker-compose:
+ - [Installing docker engine in Ubuntu](https://docs.docker.com/engine/installation/linux/ubuntulinux/) ([or other distributions](https://docs.docker.com/engine/installation/))
+ - [Installing docker-compose](https://docs.docker.com/compose/install/)
+
+Make sure you've tested the docker dependencies before moving to the net next. On Ubuntu you can test them by running:
+
+```
+sudo docker run hello-world
+```
+
+and:
+
+```
+docker-compose --version
 ```
 
 ## Start backend services for VersionEye
