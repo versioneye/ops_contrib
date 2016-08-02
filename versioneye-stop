@@ -58,4 +58,4 @@ for version in `echo "$LATEST_VERSIONS" | sed 's/.*\//VERSION_/' | sed 's/:/=/' 
     echo "export $version";
 done
 
-$DOCKER_COMPOSE -f $DOCKER_COMPOSE_YAML down
+$DOCKER_COMPOSE -f $DOCKER_COMPOSE_YAML stop
