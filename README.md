@@ -157,6 +157,54 @@ With this command the running containers can be monitored.
 
 That will display in real time how much CPU, RAM and IO each containers is using.
 
+## Backup your data
+
+The primary database for this application is MongoDB. If you run the MongoDB container
+with a persistent volume your MongoDB config in the `versioneye-base` might look like this: 
+
+```
+mongodb:
+  image: versioneye/mongodb:3.2.6
+  container_name: mongodb
+  restart: always
+  volumes:
+   - /mnt/mongodb:/data
+```
+
+In the above configuration we use `/mnt/mongodb` on the host system to persiste the data
+for MongoDB. To create a dump get a shell on the running MongoDB container like this: 
+
+```
+docker exec -it mongodb bash
+```
+
+Than navigate to the `/data` directory and create a dump with this command: 
+
+```
+mongodump --db veye_enterprise
+```
+
+That will create a complete database dump which will be persisted in `/mnt/mongodb/dump` on the host. 
+From there you can zip it and copy it to somewhere else. 
+
+## Restore your data
+
+Assume you created a dump of one of your VersionEye instances and now you would like to restore the data 
+on another VersionEye instance. If your Docker container is persisting the data under `/mnt/mongodb` on the host
+than simply compy your dump into that directory. Get a shell on the running MongoDB container: 
+
+```
+docker exec -it mongodb bash
+```
+
+Navigate to `/data` and run the restore process: 
+
+```
+mongorestore --db veye_enterprise dump/veye_enterprise/
+```
+
+Assuming that your MongoDB is empty, this will restore all the data from the previous backup. 
+
 ## Support
 
 For commercial support send a message to `support@versioneye.com`.
