@@ -30,6 +30,7 @@ mongodb:
   image: versioneye/mongodb:3.2.8
   container_name: mongodb
   restart: always
+  # net: host # With this the container is running on the same network as the host 
   # volumes:
   #  - /mnt/mongodb:/data
 
@@ -38,6 +39,7 @@ elasticsearch:
   image: reiz/elasticsearch:0.9.1-1
   container_name: elasticsearch
   restart: always
+  # net: host # With this the container is running on the same network as the host
   # volumes:
   #  - /mnt/elasticsearch:/data
 
@@ -46,9 +48,11 @@ rabbitmq:
   image: reiz/rabbitmq:3.4.2
   container_name: rabbitmq
   restart: always
+  # net: host # With this the container is running on the same network as the host
 
 # Cache
 memcached:
   image: reiz/memcached:1.4.14
   container_name: memcached
   restart: always
+  # net: host # With this the container is running on the same network as the host
