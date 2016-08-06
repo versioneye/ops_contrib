@@ -31,6 +31,8 @@ mongodb:
   container_name: mongodb
   restart: always
   # net: host # With this the container is running on the same network as the host 
+  # ports:
+  # - "27017:27017" # With this the service is exposed on the host to the network
   # volumes:
   #  - /mnt/mongodb:/data
 
@@ -40,6 +42,8 @@ elasticsearch:
   container_name: elasticsearch
   restart: always
   # net: host # With this the container is running on the same network as the host
+  # ports:
+  # - "9200:9200" # With this the service is exposed on the host to the network
   # volumes:
   #  - /mnt/elasticsearch:/data
 
@@ -49,6 +53,8 @@ rabbitmq:
   container_name: rabbitmq
   restart: always
   # net: host # With this the container is running on the same network as the host
+  # ports:
+  # - "5672:5672" # With this the service is exposed on the host to the network
 
 # Cache
 memcached:
@@ -56,3 +62,5 @@ memcached:
   container_name: memcached
   restart: always
   # net: host # With this the container is running on the same network as the host
+  # ports:
+  # - "11211:11211" # With this the service is exposed on the host to the network
