@@ -1,0 +1,13 @@
+---
+- name: update debian packages
+  apt: update_cache=true
+
+- name: install NGinx
+  apt: name=nginx state=present
+
+- name: copy nginx.conf to the server
+  copy: src=nginx.conf dest=/etc/nginx/nginx.conf
+
+- name: copy nginx default.conf to the server
+  copy: src=default.conf dest=/etc/nginx/conf.d/default.conf
+  notify: restart nginx

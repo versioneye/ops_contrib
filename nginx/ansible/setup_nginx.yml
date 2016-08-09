@@ -1,0 +1,6 @@
+---
+- hosts: versioneye_host
+  user: ubuntu
+  sudo: true
+  roles:
+  - nginx
