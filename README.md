@@ -147,6 +147,14 @@ With this command the VersionEye containers can be stopped:
 
 That will stop the VersionEye containers, but not the backend services.
 
+## Use Nginx as proxy
+
+By default the VersionEye Web App is running on port 8080 and the API on port 9090. 
+It makes sense to use a webserver in fornt of it on port 80, which does forward the 
+requests to port 8080 and 9090. Beside that the webserver can be used for SSL 
+termination. Here is an [Ansible playbook](https://github.com/versioneye/ops_contrib/tree/master/nginx/ansible)
+for that use case. 
+
 ## Monitoring
 
 With this command the running containers can be monitored.
