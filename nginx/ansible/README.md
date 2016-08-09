@@ -1,6 +1,6 @@
 # NGinx proxy for VersionEye
 
-This directory includes an Ansible playbook to setup an Nginx webserver on Ubuntu as proxy for the
+This directory includes an [Ansible](https://www.ansible.com/) playbook to setup an Nginx webserver on Ubuntu as proxy for the
 VersionEye App and API Docker containers.
 
 This directory includes 2 different roles for Nginx. There is a simple `nginx` role which installs an
