@@ -20,7 +20,13 @@ Some little changes are needed before this plyabook can be executed.
 Execute the playbook:
 
 ```
-ansible-playbook setup_nginx.yml
+ansible-playbook setup_remote_nginx.yml
+```
+
+If you wanna execute the playbook on the Host itself, means on localhost, than please use this playbook:
+
+```
+ansible-playbook setup_locale_nginx.yml
 ```
 
 ## Role nginx_ssl
@@ -37,4 +43,10 @@ Execute the playbook:
 
 ```
 ansible-playbook setup_nginx_ssl.yml
+```
+
+If you wanna execute the playbook on the Host itself, means on localhost, than please use this playbook:
+
+```
+ansible-playbook setup_locale_nginx_ssl.yml
 ```
