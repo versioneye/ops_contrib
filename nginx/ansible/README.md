@@ -57,7 +57,7 @@ To create your own self signed certificate run this command on the server:
 sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt
 ```
 
-Now adjust the server_name in the [default.conf#L15](roles/nginx_ssl/files/default.conf#L15) and [default.conf#L21](roles/nginx_ssl/files/default.conf#L21) file. If there is no Domain registred for your server, simply use the public IP address of the server. Then run the playbook playbook to update the Nginx configuraiton:
+Now adjust the server_name in the [default.conf#L15](roles/nginx_ssl/files/default.conf#L15) and [default.conf#L21](roles/nginx_ssl/files/default.conf#L21) file. If there is no Domain registred for your server, simply use the public IP address of the server. Then run the playbook to update the Nginx configuraiton:
 
 ```
 ansible-playbook setup_remote_nginx_ssl.yml
