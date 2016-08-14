@@ -63,10 +63,10 @@ Now adjust the server_name in the [default.conf#L15](roles/nginx_ssl/files/defau
 ansible-playbook setup_remote_nginx_ssl.yml
 ```
 
-If you wanna execute the playbook on the Host itself, means on localhost, than please use this playbook:
+If you want to execute the playbook on the Host/Server itself, means on localhost, than please use this playbook:
 
 ```
 ansible-playbook setup_locale_nginx_ssl.yml
 ```
 
-
+After this there should be a success message from Ansible and you should be able to access the Server like this `https://<IP_OR_DOMAIN>/`.
