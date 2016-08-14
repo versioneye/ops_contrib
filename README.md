@@ -22,26 +22,6 @@ We recommend a minimum resource configuration of:
 
 This setup will allow you to get VersionEye of the ground successfully. It's the equivalent to an [AWS `t2-medium`](https://aws.amazon.com/ec2/instance-types/). For more detailed requirements analysis please contact the VersionEye team at `support@versioneye.com`
 
-## Network configuration
-
-The VersionEye host will need the following ports open:
-
-| Port  | Protocol  | Description  |
-|---|---|---|
-| 8080  | HTTP | Web application  |
-| 9090  | HTTP | API endpoint     |
-| 22  | SSH | Host management     |
-
-If you [configure Nginx](#use-nginx-as-proxy) in front of the Web Application and API you can configure the following ports instead:
-
-| Port  | Protocol  | Description  |
-|---|---|---|
-| 80   | HTTP  | Web application & API Endpoint |
-| 433  | HTTPS | Web application & API Endpoint over SSL |
-| 22   | SSH   | Host management |
-
-You might still want to leave `8080` and `9090` open if you still want direct access to the those services.
-
 ## Vagrant
 
 There is a Vagrantfile in this directory which describes a Vagrant box for VersionEye.
@@ -65,6 +45,26 @@ If you don't
 want to use Vagrant and you are interested in running the Docker containers natively
 on your machine then keep reading. The following sections describe how to start, stop
 and monitor the VersionEye Docker images natively.
+
+## Network configuration
+
+The VersionEye host will need the following ports open:
+
+| Port  | Protocol  | Description  |
+|---|---|---|
+| 8080  | HTTP | Web application  |
+| 9090  | HTTP | API endpoint     |
+| 22  | SSH | Host management     |
+
+If you [configure Nginx](#use-nginx-as-proxy) in front of the Web Application and API you can configure the following ports instead:
+
+| Port  | Protocol  | Description  |
+|---|---|---|
+| 80   | HTTP  | Web application & API Endpoint |
+| 433  | HTTPS | Web application & API Endpoint over SSL |
+| 22   | SSH   | Host management |
+
+You might still want to leave `8080` and `9090` open if you still want direct access to the those services.
 
 ## Environment dependencies
 
