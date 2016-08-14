@@ -67,7 +67,6 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: <<-SHELL
     apt-get update
     apt-get install -y jq
-    apt-get install -y wget
     apt-get install -y nginx
 
     echo '---'
