@@ -37,10 +37,7 @@ ansible-playbook setup_locale_nginx.yml
 
 ## Role nginx_ssl
 
-This changes are needed before this plyabook can be executed.
-
- 1. Configure the IP address of your Host (VersionEye server) in the [hosts](hosts) file.
- 2. Configure the server name in the [nginx config](https://github.com/versioneye/ops_contrib/blob/master/nginx/ansible/roles/nginx_ssl/files/default.conf). In this file the server_name occurs at 2 places.
+First of all configure the IP address of your Host (VersionEye server) in the [hosts](hosts) file. That is mandatory if you run the remote playbooks. If you execute Ansible on the VersionEye server you don't have to adjust the hosts file.
 
 This playbook assumes that you create your own self signed SSL certifaces like described in this [blog post](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-16-04) and the
 cert files are placed in this places:
