@@ -30,7 +30,7 @@ mongodb:
   image: versioneye/mongodb:3.2.8
   container_name: mongodb
   restart: always
-  # net: host # With this the container is running on the same network as the host 
+  # net: host # With this the container is running on the same network as the host
   # ports:
   # - "27017:27017" # With this the service is exposed on the host to the network
   # volumes:
