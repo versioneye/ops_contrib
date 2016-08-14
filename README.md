@@ -2,6 +2,9 @@
 
 Scripts for [VersionEye](https://www.versioneye.com) operations. Everybody can contribute!
 
+VersionEye is based on [Docker](https://www.docker.com/). This repository describes how to fetch, start, stop
+and monitor them.
+
 ## Starting point
 
 Clone this repository and `cd` into it:
@@ -29,6 +32,34 @@ The VersionEye host will need the following ports open:
 | 9090  | HTTP | API endpoint     |
 | 22  | SSH | Host management     |
 
+
+## Vagrant
+
+There is a Vagrantfile in this directory which describes a Vagrant box for VersionEye.
+[Vagrant](https://www.vagrantup.com) is a cool technology to describe and manage VMs.
+If you don't have it yet, please download it from [here](https://www.vagrantup.com/downloads.html).
+By default Vagrant is using VirtualBox as VM provider. You can download VirtualBox from [here](https://www.virtualbox.org/wiki/Downloads).
+
+Open a console and navigate to the root of this git repository and run simply this command:
+
+```
+vagrant up
+```
+
+That will create a new virtual machine image in VirtualBox and install the VersionEye Docker images
+on it. Dependening on your internet connection it can take a couple minutes. If everything is done
+you can reach the VersionEye applicaiton under `http://127.0.0.1:7070`.
+
+With this command you can ssh into the VersionEye Vagrant box:
+
+```
+vagrant ssh
+```
+
+Actually that's all you need to start VersionEye on your machine. If you don't
+want to use Vagrant and you are interested in running the Docker containers natively
+on your machine then keep reading. The following sections describe how to start, stop
+and monitor the VersionEye Docker images natively.
 
 ## Environment dependencies
 
