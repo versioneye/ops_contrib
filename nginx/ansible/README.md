@@ -39,11 +39,24 @@ This changes are needed before this plyabook can be executed.
 
  1. Configure the IP address of your Host (VersionEye server) in the [hosts](hosts) file.
  2. Configure the server name in the [nginx config](https://github.com/versioneye/ops_contrib/blob/master/nginx/ansible/roles/nginx_ssl/files/default.conf). In this file the server_name occurs at 2 places.
- 3. Copy the files for your SSL certificate into the [roles/nginx_ssl/files/](roles/nginx_ssl/files) directory. There are already some empty files as an example.
- 4. Adjust the paths in the [roles/nginx_ssl/tasks/main.yml](roles/nginx_ssl/tasks/main.yml) according to your SSL files.
- 5. Adjust the paths in the [default.conf](https://github.com/versioneye/ops_contrib/blob/master/nginx/ansible/roles/nginx_ssl/files/default.conf#L23) file according to your SSL files.
 
-Execute the playbook:
+This playbook assumes that you create your own self signed SSL certifaces like described in this [blog post](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-16-04) and the
+cert files are placed in this places:
+
+```
+/etc/ssl/certs/nginx-selfsigned.crt;
+/etc/ssl/private/nginx-selfsigned.key;
+```
+
+If you have already other certifaces please place them at the directories above or adjut the paths in this playbooks.
+
+Otherwise run this command on the server to continue to generate your certificates:
+
+```
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt
+```
+
+Now adjust the server_name in the [default.conf](roles/nginx_ssl/files/default.conf#L15) file and execute the playbook:
 
 ```
 ansible-playbook setup_nginx_ssl.yml

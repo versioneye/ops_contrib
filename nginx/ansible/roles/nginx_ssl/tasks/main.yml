@@ -8,18 +8,6 @@
 - name: create cert directory for certificates
   command: mkdir -p /etc/nginx/cert
 
-- name: copy intermediate.csr to the server
-  copy: src=intermediate.csr dest=/etc/nginx/cert/intermediate.csr
-
-- name: copy SSL.pem to the server
-  copy: src=SSL.pem dest=/etc/nginx/cert/SSL.pem
-
-- name: copy versioneye.crt to the server
-  copy: src=versioneye.crt dest=/etc/nginx/cert/versioneye.crt
-
-- name: copy versioneye.key to the server
-  copy: src=versioneye.key dest=/etc/nginx/cert/versioneye.key
-
 - name: copy nginx.conf to the server
   copy: src=nginx.conf dest=/etc/nginx/nginx.conf
 
