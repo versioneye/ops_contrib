@@ -69,16 +69,26 @@ Vagrant.configure("2") do |config|
     apt-get install -y jq
     apt-get install -y wget
     apt-get install -y nginx
+
+    echo '---'
+    echo 'Install Docker and Docker-Compose'
     apt-get install -y docker.io
     apt-get install -y docker-compose
+
+    echo '---'
+    echo 'Clone versioneye/ops_contrib repository from GitHub'
     cd /home/ubuntu && git clone https://github.com/versioneye/ops_contrib.git
 
+    echo '---'
     echo 'Start backend services for Versioneye'
     cd /home/ubuntu/ops_contrib && sudo docker-compose -f versioneye-base.yml up -d
 
+    echo '---'
     echo 'Start VersionEye Docker containers'
     cd /home/ubuntu/ops_contrib && sudo ./versioneye-update
 
+    echo '---'
+    echo 'Configure Nginx'
     sudo cp /home/ubuntu/ops_contrib/nginx/ansible/roles/nginx/files/nginx.conf /etc/nginx/nginx.conf
     sudo cp /home/ubuntu/ops_contrib/nginx/vagrant/default.conf                 /etc/nginx/conf.d/default.conf
     sudo service nginx restart
