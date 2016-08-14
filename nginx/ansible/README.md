@@ -48,7 +48,7 @@ cert files are placed in this places:
 /etc/ssl/private/nginx-selfsigned.key;
 ```
 
-If you have already other certifaces please place them at the directories above or adjut the paths in this playbooks.
+If you have already other certifaces please place them at the directories described above or adjut the paths in this playbooks.
 
 Otherwise run this command on the server to continue to generate your certificates:
 
