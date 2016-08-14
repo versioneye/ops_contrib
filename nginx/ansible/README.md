@@ -49,8 +49,7 @@ cert files are placed in this places:
 ```
 
 If you have already other certifaces please place them at the directories described above or adjut the paths in this playbooks.
-
-Otherwise run this command on the server to continue to generate your certificates:
+To create your own self signed certificate run this command on the server:
 
 ```
 sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt
