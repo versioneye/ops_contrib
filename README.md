@@ -32,6 +32,15 @@ The VersionEye host will need the following ports open:
 | 9090  | HTTP | API endpoint     |
 | 22  | SSH | Host management     |
 
+If you [configure Nginx](#use-nginx-as-proxy) in front of the Web Application and API you can configure the following ports instead:
+
+| Port  | Protocol  | Description  |
+|---|---|---|
+| 80   | HTTP  | Web application & API Endpoint |
+| 433  | HTTPS | Web application & API Endpoint over SSL |
+| 22   | SSH   | Host management |
+
+You might still want to leave `8080` and `9090` open if you still want direct access to the those services.
 
 ## Vagrant
 
