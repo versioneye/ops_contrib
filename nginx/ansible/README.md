@@ -1,7 +1,11 @@
 # NGinx proxy for VersionEye
 
 This directory includes an [Ansible](https://www.ansible.com/) playbook to setup an Nginx webserver on Ubuntu as proxy for the
-VersionEye App and API Docker containers.
+VersionEye App and API Docker containers. On Ubuntu Ansible can be installed like this: 
+
+```
+sudo apt-get install ansible
+```
 
 This directory includes 2 different roles for Nginx. There is a simple `nginx` role which installs an
 Nginx on port 80 with a configuration to forward requests to `localhost:8080` (VersionEye Web App) and to
