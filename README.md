@@ -27,7 +27,8 @@ This setup will allow you to get VersionEye of the ground successfully. It's the
 There is a Vagrantfile in this directory which describes a Vagrant box for VersionEye.
 [Vagrant](https://www.vagrantup.com) is a cool technology to describe and manage VMs.
 If you don't have it yet, please download it from [here](https://www.vagrantup.com/downloads.html).
-By default Vagrant is using VirtualBox as VM provider. You can download VirtualBox from [here](https://www.virtualbox.org/wiki/Downloads).
+By default Vagrant is using VirtualBox as VM provider. You can download VirtualBox from [here](https://www.virtualbox.org/wiki/Downloads). This setup is tested with Vagrant version 
+ 1.8.5 and VirtualBox version 5.0.16 r105871. 
 
 Open a console and navigate to the root of this git repository and run simply this command:
 
