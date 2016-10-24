@@ -192,6 +192,10 @@ requests to port 8080 and 9090. Beside that the webserver can be used for SSL
 termination. Here is an [Ansible playbook](https://github.com/versioneye/ops_contrib/tree/master/nginx/ansible)
 for that use case.
 
+## Configure cron jobs for crawling
+
+The Docker image `versioneye/crawlj` contains the crawlers which enable you to crawl internal Maven repositories such as Sonatype Nexus, JFrog Artifactory or Apache Archiva. Inside of the Docker container the crawlers are triggered by a cron job. The crontab for that can be found [here](https://github.com/versioneye/crawl_j/blob/master/crontab_enterprise). If you want to trigger ther crawlers on a different schedule you have to mount another crontab file into the Docker container to `/mnt/crawl_j/crontab_enterprise`. 
+
 ## Monitoring
 
 With this command the running containers can be monitored.
