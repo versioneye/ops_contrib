@@ -157,7 +157,7 @@ That will create a default user `admin` with a super secret password `admin` and
 
 ### Boot2Docker on Mac OS X
 
-If you are using [Boot2Docker](http://boot2docker.io/) on Mac OS X the Docker containers are running in an virtual machine
+If you are using [Boot2Docker](http://boot2docker.io/) on Mac OS X the Docker containers are running in a virtual machine
 on [VirtualBox](https://www.virtualbox.org/wiki/Downloads). In that case you have to find out the IP of your VirtualBox VM and the application
 will be available under the IP of the VM on port 8080.
 
