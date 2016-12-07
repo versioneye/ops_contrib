@@ -38,7 +38,7 @@ vagrant up
 
 That will create a new virtual machine image in VirtualBox and install the VersionEye Docker images
 on it. Dependening on your internet connection it can take a couple minutes. If everything is done
-you can reach the VersionEye applicaiton under `http://127.0.0.1:7070`.
+you can reach the VersionEye application under `http://127.0.0.1:7070`.
 
 **But keep it mind that this Vagrant setup is just for development and testing. It's not a production setup! If you shut down the Vagrant box it might be that you loose data!**
 
@@ -157,7 +157,7 @@ That will create a default user `admin` with a super secret password `admin` and
 
 ### Boot2Docker on Mac OS X
 
-If you are using [Boot2Docker](http://boot2docker.io/) on Mac OS X the Docker containers are running in an virtual machine
+If you are using [Boot2Docker](http://boot2docker.io/) on Mac OS X the Docker containers are running in a virtual machine
 on [VirtualBox](https://www.virtualbox.org/wiki/Downloads). In that case you have to find out the IP of your VirtualBox VM and the application
 will be available under the IP of the VM on port 8080.
 
