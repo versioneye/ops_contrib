@@ -32,6 +32,7 @@
 #     $VERSION_RAILS_APP
 #     $VERSION_RAILS_API
 #     $VERSION_TASKS
+#     $VERSION_CRAWLR
 #     $VERSION_CRAWLJ
 #     $VERSION_CRAWLJ_WORKER
 
@@ -72,6 +73,19 @@ tasks:
   restart: always
   # volumes:
   # - /mnt/logs:/app/log
+  external_links:
+   - rabbitmq:rm
+   - memcached:mc
+   - elasticsearch:es
+   - mongodb:db
+
+# Ruby crawlers
+crawlr:
+  image: versioneye/crawlr:${VERSION_CRAWLR}
+  container_name: crawlr
+  restart: always
+  # volumes:
+  # - /mnt/logs:/mnt/logs
   external_links:
    - rabbitmq:rm
    - memcached:mc
