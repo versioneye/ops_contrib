@@ -27,7 +27,7 @@
 
 # Primary DB. The single source of truth!
 mongodb:
-  image: versioneye/mongodb:3.2.8
+  image: versioneye/mongodb:3.4
   container_name: mongodb
   restart: always
   # net: host # With this the container is running on the same network as the host
