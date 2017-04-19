@@ -196,6 +196,37 @@ for that use case.
 
 The Docker image `versioneye/crawlj` contains the crawlers which enable you to crawl internal Maven repositories such as Sonatype Nexus, JFrog Artifactory or Apache Archiva. Inside of the Docker container the crawlers are triggered by a cron job. The crontab for that can be found [here](https://github.com/versioneye/crawl_j/blob/master/crontab_enterprise). If you want to trigger the crawlers on a different schedule you have to mount another crontab file into the Docker container to `/mnt/crawl_j/crontab_enterprise`. 
 
+## RabbitMQ Management Plugin
+
+By default the RabbitMQ container is running without a UI. But if the management plugin 
+is enabled a Web UI can be used to watch and control the queues. Do do that you need 
+to get a shell on the running rabbitmq container: 
+
+```
+docker exec -it rabbitmq bash
+```
+
+Then run this command to enable the management plugin: 
+
+```
+rabbitmq-plugins enable rabbitmq_management
+```
+
+and leave the container with `exit`. Now leave the Host server and build up an SSH tunnel 
+from your local machine to the Host and the running container: 
+
+```
+ssh -f <USER>@<HOST_IP> -L 15672:<IP_OF_DOCKER_CONTAINER>:15672 -N
+```
+
+For example: 
+
+```
+ssh -f ubuntu@192.168.0.33 -L 15672:172.17.0.4:15672 -N
+```
+
+Now open a browser on your machine and navigate to `http://localhost:15672/`. Now you should be able to see the RabbitMQ UI.
+
 ## Monitoring
 
 With this command the running containers can be monitored.
