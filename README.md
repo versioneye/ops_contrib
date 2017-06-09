@@ -127,7 +127,7 @@ mount volumes in the `versioneye-base.yml` file and adjust the paths to a direct
 To stop backend services you can run:
 
 ```sh
-docker-compose -f versioneye-base.yml down
+docker-compose -f versioneye-base.yml stop
 ```
 
 ## Start the VersionEye containers
