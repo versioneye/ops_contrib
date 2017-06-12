@@ -31,6 +31,12 @@ Clone this repository and `cd` into it:
 
 Some of the commands and files below are found on the root of this repository, thus cloning the repository is the easier way to get access to them. Alternatively you can download the files or use the [repository archive](https://github.com/versioneye/ops_contrib/archive/master.zip).
 
+There are 2 ways of running the VersionEye software. 
+The simplest is to run the Vagrant box in the next section. 
+That is perfect for a quick start to try out the software. 
+For production environments we recommend to setup the Docker containers natively. 
+In that case you can skip the Vagrant section. 
+
 ## Vagrant
 
 There is a Vagrantfile in this directory which describes a Vagrant box for VersionEye.
