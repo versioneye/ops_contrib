@@ -2,8 +2,9 @@
 
 Scripts for [VersionEye](https://www.versioneye.com) operations. Everybody can contribute!
 
-VersionEye is based on [Docker](https://www.docker.com/). This repository describes how to fetch, start, stop
-and monitor them.
+VersionEye is based on [Docker](https://www.docker.com/). This repository describes how to fetch, start, stop and monitor them.
+
+## Table of Contents
 
 - [Starting Point](#starting-point)
 - [Vagrant](#vagrant)
@@ -144,7 +145,7 @@ mount volumes in the `versioneye-base.yml` file and adjust the paths to a direct
 To stop backend services you can run:
 
 ```sh
-docker-compose -f versioneye-base.yml stop
+docker-compose -f versioneye-base.yml down
 ```
 
 ## Start the VersionEye containers
