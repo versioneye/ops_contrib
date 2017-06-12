@@ -2,7 +2,8 @@
 
 Scripts for [VersionEye](https://www.versioneye.com) operations. Everybody can contribute!
 
-VersionEye is based on [Docker](https://www.docker.com/). This repository describes how to fetch, start, stop and monitor them.
+The software for [VersionEye](https://www.versioneye.com) is shipped in multiple [Docker](https://www.docker.com/) images. VersionEye is a distributed system which is a composition of at least 8 Docker images. The Docker images and there relations to each other are described in docker compose files.
+This repository describes how to fetch, start, stop and monitor the VersionEye Docker images.
 
 ## Table of Contents
 
