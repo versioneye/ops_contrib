@@ -5,6 +5,23 @@ Scripts for [VersionEye](https://www.versioneye.com) operations. Everybody can c
 VersionEye is based on [Docker](https://www.docker.com/). This repository describes how to fetch, start, stop
 and monitor them.
 
+- [Starting Point](#starting-point)
+- [Vagrant](#vagrant)
+- [System requirements](#system-requirements)
+- [Network configuration](#network-configuration)
+- [Environment dependencies](#environment-dependencies)
+- [Start backend services for VersionEye](#start-backend-services-for-VersionEye)
+- [Start the VersionEye containers](#start-the-versioneye-containers)
+- [Stop the VersionEye containers](#stop-the-versioneye-containers)
+- [Use Nginx as proxy](#use-nginx-as-proxy)
+- [Configure cron jobs for crawling](#configure-cron-jobs-for-crawling)
+- [RabbitMQ Management Plugin](#rabbitmq-management-plugin)
+- [Monitoring](#monitoring)
+- [Backup your data](#backup-your-data)
+- [Restore your data](#restore-your-data)
+- [Support](#support)
+- [License](#license)
+
 ## Starting point
 
 Clone this repository and `cd` into it:
@@ -12,15 +29,6 @@ Clone this repository and `cd` into it:
 `git clone https://github.com/versioneye/ops_contrib.git && cd ops_contrib`
 
 Some of the commands and files below are found on the root of this repository, thus cloning the repository is the easier way to get access to them. Alternatively you can download the files or use the [repository archive](https://github.com/versioneye/ops_contrib/archive/master.zip).
-
-## System requirements
-
-We recommend a minimum resource configuration of:
- - 2 vCPUS
- - 4GB of RAM
- - 100GB of storage
-
-This setup will allow you to get VersionEye of the ground successfully. It's the equivalent to an [AWS `t2-medium`](https://aws.amazon.com/ec2/instance-types/). For more detailed requirements analysis please contact the VersionEye team at `support@versioneye.com`
 
 ## Vagrant
 
@@ -46,6 +54,15 @@ If you don't
 want to use Vagrant and you are interested in running the Docker containers natively
 on your machine then keep reading. The following sections describe how to start, stop
 and monitor the VersionEye Docker images natively.
+
+## System requirements
+
+We recommend a minimum resource configuration of:
+ - 2 vCPUS
+ - 4GB of RAM
+ - 100GB of storage
+
+This setup will allow you to get VersionEye of the ground successfully. It's the equivalent to an [AWS `t2-medium`](https://aws.amazon.com/ec2/instance-types/). For more detailed requirements analysis please contact the VersionEye team at `support@versioneye.com`
 
 ## Network configuration
 
