@@ -67,10 +67,10 @@ and monitor the VersionEye Docker images natively.
 
 We recommend a minimum resource configuration of:
  - 2 vCPUS
- - 4GB of RAM
+ - 8GB of RAM
  - 100GB of storage
 
-This setup will allow you to get VersionEye of the ground successfully. It's the equivalent to an [AWS `t2-medium`](https://aws.amazon.com/ec2/instance-types/). For more detailed requirements analysis please contact the VersionEye team at `support@versioneye.com`
+This setup will allow you to get VersionEye of the ground successfully. It's the equivalent to an [AWS `t2-large`](https://aws.amazon.com/ec2/instance-types/). For more detailed requirements analysis please contact the VersionEye team at `support@versioneye.com`
 
 ## Network configuration
 
