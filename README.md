@@ -144,16 +144,38 @@ Start the docker containers:
 sudo docker-compose -f versioneye-base.yml up -d
 ```
 
-That will start all 4 Docker containers in deamon mode.
-The MongoDB and ElasticSearch container is not persistent! If the Docker containers are
-getting stopped/killed the data is lost. For persistence you need to comment in the
-mount volumes in the `versioneye-base.yml` file and adjust the paths to a directory on the host system.
-
-To stop backend services you can run:
+That will start all 4 Docker containers in deamon mode. To stop backend services you can run:
 
 ```sh
 docker-compose -f versioneye-base.yml stop
 ```
+
+**The MongoDB & ElasticSearch containers are not persistent by default!** If the Docker containers are
+getting stopped/killed the data is lost. For persistence you need to comment in the
+mount volumes in the `versioneye-base.yml` file and adjust the paths to a directory on the host system.
+Especially the MongoDB container should be adjusted to be persistent:
+
+```
+mongodb:
+  image: versioneye/mongodb:3.4
+  container_name: mongodb
+  restart: always
+  volumes:
+   - <PERSISTENT_PATH_ON_HOST_SYSTEM>:/data
+```
+
+For example:
+
+```
+mongodb:
+  image: versioneye/mongodb:3.4
+  container_name: mongodb
+  restart: always
+  volumes:
+   - /mnt/mongodb:/data
+```
+
+The ElasticSearch container should be adjusted in the same fashion. The other containers in `versioneye-base.yml` can be adjusted the same way, but are not critical.
 
 ## Start the VersionEye containers
 
@@ -171,6 +193,31 @@ This script will:
  - Start the Docker containers with docker-compose
 
 If everything goes well you can access the VersionEye web application on `http://localhost:8080`.
+
+The VersionEye Docker containers are using rotating log files. 
+By default the log files are not persistent.
+If you want to have the log files persistent on the Host system you have to adjust the 
+volumes in the `docker-compose.yml` file. To make the logs from the web application persistent
+the volumes section could be adjusted like this: 
+
+```
+rails_app:
+  image: versioneye/rails_app:${VERSION_RAILS_APP}
+  container_name: rails_app
+  restart: always
+  ports:
+   - "8080:8080"
+  volumes:
+   - /mnt/logs:/app/log
+  external_links:
+   - rabbitmq:rm
+   - memcached:mc
+   - elasticsearch:es
+   - mongodb:db
+```
+
+Make sure that `/mnt/logs` is an existing directoroy on the Host system or adjust the path to 
+an existing directory.
 
 ### Boot2Docker on Mac OS X
 
