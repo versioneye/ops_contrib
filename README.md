@@ -228,8 +228,8 @@ sudo service nginx restart
 
 Now the VersionEye web app should be available on port 80.
 
-Here is an [Ansible playbook](https://github.com/versioneye/ops_contrib/tree/master/nginx/ansible)
-which is automating this steps.
+Here are some [Ansible playbooks](https://github.com/versioneye/ops_contrib/tree/master/nginx/ansible)
+which is automate this steps and contain a role for setting up Nginx with an SSL certificate.
 
 ## Configure cron jobs for crawling
 
