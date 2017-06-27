@@ -86,10 +86,6 @@ Vagrant.configure("2") do |config|
     cd /opt/ops_contrib && sudo ./versioneye-update
 
     echo '---'
-    echo 'Init VersionEye database'
-    cd /opt/ops_contrib && sudo docker exec -it tasks /app/init_enterprise.sh
-
-    echo '---'
     echo 'Configure Nginx'
     sudo cp /opt/ops_contrib/nginx/ansible/roles/nginx/files/nginx.conf /etc/nginx/nginx.conf
     sudo cp /opt/ops_contrib/nginx/vagrant/default.conf                 /etc/nginx/conf.d/default.conf
