@@ -32,19 +32,19 @@ Clone this repository and `cd` into it:
 
 Some of the commands and files below are found on the root of this repository, thus cloning the repository is the easier way to get access to them. Alternatively you can download the files or use the [repository archive](https://github.com/versioneye/ops_contrib/archive/master.zip).
 
-There are 2 ways of running the VersionEye software. 
-The simplest is to run the Vagrant box in the next section. 
-That is perfect for a quick start to try out the software. 
-For production environments we recommend to setup the Docker containers natively. 
-In that case you can skip the Vagrant section. 
+There are 2 ways of running the VersionEye software.
+The simplest is to run the Vagrant box in the next section.
+That is perfect for a quick start to try out the software.
+For production environments we recommend to setup the Docker containers natively.
+In that case you can skip the Vagrant section.
 
 ## Vagrant
 
 There is a Vagrantfile in this directory which describes a Vagrant box for VersionEye.
 [Vagrant](https://www.vagrantup.com) is a cool technology to describe and manage VMs.
 If you don't have it yet, please download it from [here](https://www.vagrantup.com/downloads.html).
-By default Vagrant is using VirtualBox as VM provider. You can download VirtualBox from [here](https://www.virtualbox.org/wiki/Downloads). This setup is tested with Vagrant version 
- 1.8.5 and VirtualBox version 5.0.16 r105871. 
+By default Vagrant is using VirtualBox as VM provider. You can download VirtualBox from [here](https://www.virtualbox.org/wiki/Downloads). This setup is tested with Vagrant version
+ 1.8.5 and VirtualBox version 5.0.16 r105871.
 
 Open a console and navigate to the root of this git repository and run simply this command:
 
@@ -152,7 +152,7 @@ mount volumes in the `versioneye-base.yml` file and adjust the paths to a direct
 To stop backend services you can run:
 
 ```sh
-docker-compose -f versioneye-base.yml down
+docker-compose -f versioneye-base.yml stop
 ```
 
 ## Start the VersionEye containers
@@ -211,32 +211,32 @@ for that use case.
 
 ## Configure cron jobs for crawling
 
-The Docker image `versioneye/crawlj` contains the crawlers which enable you to crawl internal Maven repositories such as Sonatype Nexus, JFrog Artifactory or Apache Archiva. Inside of the Docker container the crawlers are triggered by a cron job. The crontab for that can be found [here](https://github.com/versioneye/crawl_j/blob/master/crontab_enterprise). If you want to trigger the crawlers on a different schedule you have to mount another crontab file into the Docker container to `/mnt/crawl_j/crontab_enterprise`. 
+The Docker image `versioneye/crawlj` contains the crawlers which enable you to crawl internal Maven repositories such as Sonatype Nexus, JFrog Artifactory or Apache Archiva. Inside of the Docker container the crawlers are triggered by a cron job. The crontab for that can be found [here](https://github.com/versioneye/crawl_j/blob/master/crontab_enterprise). If you want to trigger the crawlers on a different schedule you have to mount another crontab file into the Docker container to `/mnt/crawl_j/crontab_enterprise`.
 
 ## RabbitMQ Management Plugin
 
-By default the RabbitMQ container is running without a UI. But if the management plugin 
-is enabled a Web UI can be used to watch and control the queues. Do do that you need 
-to get a shell on the running rabbitmq container: 
+By default the RabbitMQ container is running without a UI. But if the management plugin
+is enabled a Web UI can be used to watch and control the queues. Do do that you need
+to get a shell on the running rabbitmq container:
 
 ```
 docker exec -it rabbitmq bash
 ```
 
-Then run this command to enable the management plugin: 
+Then run this command to enable the management plugin:
 
 ```
 rabbitmq-plugins enable rabbitmq_management
 ```
 
-and leave the container with `exit`. Now leave the Host server and build up an SSH tunnel 
-from your local machine to the Host and the running container: 
+and leave the container with `exit`. Now leave the Host server and build up an SSH tunnel
+from your local machine to the Host and the running container:
 
 ```
 ssh -f <USER>@<HOST_IP> -L 15672:<IP_OF_DOCKER_CONTAINER>:15672 -N
 ```
 
-For example: 
+For example:
 
 ```
 ssh -f ubuntu@192.168.0.33 -L 15672:172.17.0.4:15672 -N
