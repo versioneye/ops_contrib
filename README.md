@@ -206,8 +206,30 @@ That will stop the VersionEye containers, but not the backend services.
 By default the VersionEye Web App is running on port 8080 and the API on port 9090.
 It makes sense to use a webserver in fornt of it on port 80, which does forward the
 requests to port 8080 and 9090. Beside that the webserver can be used for SSL
-termination. Here is an [Ansible playbook](https://github.com/versioneye/ops_contrib/tree/master/nginx/ansible)
-for that use case.
+termination. On Ubuntu the Nginx webserver can be installed like this:
+
+```
+apt-get install nginx
+```
+
+Assuming this repository is checked out into `/opt/ops_contrib`,
+the Nginx can be re configured as proxy for VersionEye by copying this 2 files to the right location:
+
+```
+sudo cp /opt/ops_contrib/nginx/ansible/roles/nginx/files/nginx.conf /etc/nginx/nginx.conf
+sudo cp /opt/ops_contrib/nginx/ansible/roles/nginx/files/default.conf /etc/nginx/conf.d/default.conf
+```
+
+After that the Nginx needs to be restarted:
+
+```
+sudo service nginx restart
+```
+
+Now the VersionEye web app should be available on port 80.
+
+Here is an [Ansible playbook](https://github.com/versioneye/ops_contrib/tree/master/nginx/ansible)
+which is automating this steps.
 
 ## Configure cron jobs for crawling
 
