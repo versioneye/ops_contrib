@@ -47,7 +47,7 @@ Vagrant.configure("2") do |config|
   # Example for VirtualBox:
   #
   config.vm.provider "virtualbox" do |vb|
-    vb.memory = 4096
+    vb.memory = 8192
   end
 
   # View the documentation for the provider you are using for more
@@ -75,24 +75,24 @@ Vagrant.configure("2") do |config|
 
     echo '---'
     echo 'Clone versioneye/ops_contrib repository from GitHub'
-    cd /home/ubuntu && git clone https://github.com/versioneye/ops_contrib.git
+    cd /opt && git clone https://github.com/versioneye/ops_contrib.git
 
     echo '---'
     echo 'Start backend services for Versioneye'
-    cd /home/ubuntu/ops_contrib && sudo docker-compose -f versioneye-base.yml up -d
+    cd /opt/ops_contrib && sudo docker-compose -f versioneye-base.yml up -d
 
     echo '---'
     echo 'Start VersionEye Docker containers'
-    cd /home/ubuntu/ops_contrib && sudo ./versioneye-update
+    cd /opt/ops_contrib && sudo ./versioneye-update
 
     echo '---'
     echo 'Init VersionEye database'
-    cd /home/ubuntu/ops_contrib && sudo docker exec -it tasks /app/init_enterprise.sh
+    cd /opt/ops_contrib && sudo docker exec -it tasks /app/init_enterprise.sh
 
     echo '---'
     echo 'Configure Nginx'
-    sudo cp /home/ubuntu/ops_contrib/nginx/ansible/roles/nginx/files/nginx.conf /etc/nginx/nginx.conf
-    sudo cp /home/ubuntu/ops_contrib/nginx/vagrant/default.conf                 /etc/nginx/conf.d/default.conf
+    sudo cp /opt/ops_contrib/nginx/ansible/roles/nginx/files/nginx.conf /etc/nginx/nginx.conf
+    sudo cp /opt/ops_contrib/nginx/vagrant/default.conf                 /etc/nginx/conf.d/default.conf
     sudo service nginx restart
   SHELL
 end
