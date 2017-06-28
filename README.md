@@ -15,6 +15,7 @@ This repository describes how to fetch, start, stop and monitor the VersionEye D
 - [Start backend services for VersionEye](#start-backend-services-for-VersionEye)
 - [Start the VersionEye containers](#start-the-versioneye-containers)
 - [Stop the VersionEye containers](#stop-the-versioneye-containers)
+- [Logging](#logging)
 - [Use Nginx as proxy](#use-nginx-as-proxy)
 - [Configure cron jobs for crawling](#configure-cron-jobs-for-crawling)
 - [RabbitMQ Management Plugin](#rabbitmq-management-plugin)
@@ -194,8 +195,21 @@ This script will:
 
 If everything goes well you can access the VersionEye web application on `http://localhost:8080`.
 
-The VersionEye Docker containers are using rotating log files. 
-By default the log files are not persistent.
+## Stop the VersionEye containers
+
+With this command the VersionEye containers can be stopped:
+
+```
+./versioneye-stop
+```
+
+That will stop the VersionEye containers, but not the backend services.
+
+## Logging
+
+The VersionEye Docker containers are using rotating log files with 10 MB per file and max 10 files. 
+That way the hard disk will not run full with log files.
+**By default the log files are not persistent**.
 If you want to have the log files persistent on the Host system you have to adjust the 
 volumes in the `docker-compose.yml` file. To make the logs from the web application persistent
 the volumes section could be adjusted like this: 
@@ -218,16 +232,6 @@ rails_app:
 
 Make sure that `/mnt/logs` is an existing directoroy on the Host system or adjust the path to 
 an existing directory.
-
-## Stop the VersionEye containers
-
-With this command the VersionEye containers can be stopped:
-
-```
-./versioneye-stop
-```
-
-That will stop the VersionEye containers, but not the backend services.
 
 ## Use Nginx as proxy
 
