@@ -15,11 +15,11 @@ This repository describes how to fetch, start, stop and monitor the VersionEye D
 - [Start backend services for VersionEye](#start-backend-services-for-VersionEye)
 - [Start the VersionEye containers](#start-the-versioneye-containers)
 - [Stop the VersionEye containers](#stop-the-versioneye-containers)
-- [Logging](#logging)
 - [Use Nginx as proxy](#use-nginx-as-proxy)
 - [Configure cron jobs for crawling](#configure-cron-jobs-for-crawling)
-- [RabbitMQ Management Plugin](#rabbitmq-management-plugin)
+- [Logging](#logging)
 - [Monitoring](#monitoring)
+- [RabbitMQ Management Plugin](#rabbitmq-management-plugin)
 - [Backup your data](#backup-your-data)
 - [Restore your data](#restore-your-data)
 - [Support](#support)
@@ -212,34 +212,6 @@ With this command the VersionEye containers can be stopped:
 
 That will stop the VersionEye containers, but not the backend services.
 
-## Logging
-
-The VersionEye Docker containers are using rotating log files with 10 MB per file and max 10 files. 
-That way the hard disk will not run full with log files.
-**By default the log files are not persistent**.
-If you want to have the log files persistent on the Host system you have to adjust the 
-volumes in the `docker-compose.yml` file. To make the logs from the web application persistent
-the volumes section could be adjusted like this: 
-
-```
-rails_app:
-  image: versioneye/rails_app:${VERSION_RAILS_APP}
-  container_name: rails_app
-  restart: always
-  ports:
-   - "8080:8080"
-  volumes:
-   - /mnt/logs:/app/log
-  external_links:
-   - rabbitmq:rm
-   - memcached:mc
-   - elasticsearch:es
-   - mongodb:db
-```
-
-Make sure that `/mnt/logs` is an existing directoroy on the Host system or adjust the path to 
-an existing directory.
-
 ## Use Nginx as proxy
 
 By default the VersionEye Web App is running on port 8080 and the API on port 9090.
@@ -274,6 +246,46 @@ which is automate this steps and contain a role for setting up Nginx with an SSL
 
 The Docker image `versioneye/crawlj` contains the crawlers which enable you to crawl internal Maven repositories such as Sonatype Nexus, JFrog Artifactory or Apache Archiva. Inside of the Docker container the crawlers are triggered by a cron job. The crontab for that can be found [here](https://github.com/versioneye/crawl_j/blob/master/crontab_enterprise). If you want to trigger the crawlers on a different schedule you have to mount another crontab file into the Docker container to `/mnt/crawl_j/crontab_enterprise`.
 
+## Logging
+
+The VersionEye Docker containers are using rotating log files with 10 MB per file and max 10 files. 
+That way the hard disk will not run full with log files.
+**By default the log files are not persistent**.
+If you want to have the log files persistent on the Host system you have to adjust the 
+volumes in the `docker-compose.yml` file. To make the logs from the web application persistent
+the volumes section could be adjusted like this: 
+
+```
+rails_app:
+  image: versioneye/rails_app:${VERSION_RAILS_APP}
+  container_name: rails_app
+  restart: always
+  ports:
+   - "8080:8080"
+  volumes:
+   - /mnt/logs:/app/log
+  external_links:
+   - rabbitmq:rm
+   - memcached:mc
+   - elasticsearch:es
+   - mongodb:db
+```
+
+Make sure that `/mnt/logs` is an existing directoroy on the Host system or adjust the path to 
+an existing directory.
+
+**If you make this changes to the `docker-compose.yml` file you have to restart the Docker containers.**
+
+## Monitoring
+
+With this command the running containers can be monitored.
+
+```
+./docker-mon
+```
+
+That will display in real time how much CPU, RAM and IO each containers is using.
+
 ## RabbitMQ Management Plugin
 
 By default the RabbitMQ container is running without a UI. But if the management plugin
@@ -304,16 +316,6 @@ ssh -f ubuntu@192.168.0.33 -L 15672:172.17.0.4:15672 -N
 ```
 
 Now open a browser on your machine and navigate to `http://localhost:15672/`. Now you should be able to see the RabbitMQ UI.
-
-## Monitoring
-
-With this command the running containers can be monitored.
-
-```
-./docker-mon
-```
-
-That will display in real time how much CPU, RAM and IO each containers is using.
 
 ## Backup your data
 
