@@ -41,6 +41,8 @@ rails_app:
   image: versioneye/rails_app:${VERSION_RAILS_APP}
   container_name: rails_app
   restart: always
+  environment:
+    TZ: Europe/Berlin"
   ports:
    - "8080:8080"
   # volumes:
@@ -56,6 +58,8 @@ rails_api:
   image: versioneye/rails_api:${VERSION_RAILS_API}
   container_name: rails_api
   restart: always
+  environment:
+    TZ: Europe/Berlin"
   ports:
    - "9090:9090"
   # volumes:
@@ -71,6 +75,8 @@ tasks:
   image: versioneye/tasks:${VERSION_TASKS}
   container_name: tasks
   restart: always
+  environment:
+    TZ: Europe/Berlin"
   # volumes:
   # - /mnt/logs:/app/log
   external_links:
@@ -97,6 +103,8 @@ crawlj:
   image: versioneye/crawlj:${VERSION_CRAWLJ}
   container_name: crawlj
   restart: always
+  environment:
+    TZ: Europe/Berlin"
   # volumes:
   # - /mnt/logs:/mnt/logs
   external_links:
@@ -110,6 +118,8 @@ crawlj_worker:
   image: versioneye/crawlj_worker:${VERSION_CRAWLJ_WORKER}
   #container_name: crawlj_worker      # Comment in if you don't want to scale the worker
   restart: always
+  environment:
+    TZ: Europe/Berlin"
   # volumes:
   # - /mnt/logs:/mnt/logs
   external_links:

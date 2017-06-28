@@ -30,6 +30,8 @@ mongodb:
   image: versioneye/mongodb:3.4
   container_name: mongodb
   restart: always
+  environment:
+    TZ: Europe/Berlin"
   # net: host # With this the container is running on the same network as the host
   # ports:
   # - "27017:27017" # With this the service is exposed on the host to the network
@@ -41,6 +43,8 @@ elasticsearch:
   image: reiz/elasticsearch:0.9.1-1
   container_name: elasticsearch
   restart: always
+  environment:
+    TZ: Europe/Berlin"
   # net: host # With this the container is running on the same network as the host
   # ports:
   # - "9200:9200" # With this the service is exposed on the host to the network
@@ -52,6 +56,8 @@ rabbitmq:
   image: reiz/rabbitmq:3.4.2
   container_name: rabbitmq
   restart: always
+  environment:
+    TZ: Europe/Berlin"
   # net: host # With this the container is running on the same network as the host
   # ports:
   # - "5672:5672" # With this the service is exposed on the host to the network
@@ -61,6 +67,8 @@ memcached:
   image: reiz/memcached:1.4.14
   container_name: memcached
   restart: always
+  environment:
+    TZ: Europe/Berlin"
   # net: host # With this the container is running on the same network as the host
   # ports:
   # - "11211:11211" # With this the service is exposed on the host to the network
