@@ -200,7 +200,9 @@ This script will:
  - Pull down the Docker images from Docher Hub
  - Start the Docker containers with docker-compose
 
-If everything goes well you can access the VersionEye web application on `http://localhost:8080`.
+If everything goes well you can access the VersionEye web application on `http://localhost:8080` and should see something like this: 
+
+![VersionEye Enterprise Landing Page](images/VersionEye-Landing.png)
 
 ## Stop the VersionEye containers
 
