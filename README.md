@@ -1,6 +1,6 @@
 # ops_contrib
 
-Scripts for [VersionEye](https://www.versioneye.com) operations. Everybody can contribute!
+This repo contains scripts to install & operate [VersionEye](https://www.versioneye.com) as on prem. installation. Everybody can contribute!
 
 The software for [VersionEye](https://www.versioneye.com) is shipped in multiple [Docker](https://www.docker.com/) images. VersionEye is a distributed system which is a composition of at least 8 Docker images. The Docker images and there relations to each other are described in docker compose files.
 This repository describes how to fetch, start, stop and monitor the VersionEye Docker images.
@@ -67,11 +67,18 @@ and monitor the VersionEye Docker images natively.
 ## System requirements
 
 We recommend a minimum resource configuration of:
+
  - 2 vCPUS
  - 8GB of RAM
  - 25GB of storage
 
-This setup will allow you to get VersionEye of the ground successfully. It's the equivalent to an [AWS `t2-large`](https://aws.amazon.com/ec2/instance-types/). For more detailed requirements analysis please contact the VersionEye team at `support@versioneye.com`
+This setup will allow you to get VersionEye of the ground successfully. It's the equivalent to an [AWS `t2-large`](https://aws.amazon.com/ec2/instance-types/). Some customers are using VersionEye to monitor 1500 internal software projects. They are running the software with this harware setup: 
+
+ - 4 vCPUS
+ - 16 GB of RAM
+ - 100 GB of storage
+
+For more detailed requirements analysis please contact the VersionEye team at `support@versioneye.com`
 
 ## Network configuration
 
