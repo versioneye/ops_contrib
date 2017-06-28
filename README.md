@@ -17,6 +17,7 @@ This repository describes how to fetch, start, stop and monitor the VersionEye D
 - [Stop the VersionEye containers](#stop-the-versioneye-containers)
 - [Use Nginx as proxy](#use-nginx-as-proxy)
 - [Configure cron jobs for crawling](#configure-cron-jobs-for-crawling)
+- [Timezone](#timezone)
 - [Logging](#logging)
 - [Monitoring](#monitoring)
 - [RabbitMQ Management Plugin](#rabbitmq-management-plugin)
@@ -247,6 +248,30 @@ which is automate this steps and contain a role for setting up Nginx with an SSL
 ## Configure cron jobs for crawling
 
 The Docker image `versioneye/crawlj` contains the crawlers which enable you to crawl internal Maven repositories such as Sonatype Nexus, JFrog Artifactory or Apache Archiva. Inside of the Docker container the crawlers are triggered by a cron job. The crontab for that can be found [here](https://github.com/versioneye/crawl_j/blob/master/crontab_enterprise). If you want to trigger the crawlers on a different schedule you have to mount another crontab file into the Docker container to `/mnt/crawl_j/crontab_enterprise`.
+
+## Timezone
+
+Each Docker container has his own time zone settings. By default Ubuntu machines are running with UTC time zone. In the docker-compose files we set the time zone explicitly to London timezone. That's this part: 
+
+```
+  environment:
+    TZ: Europe/London
+```
+
+If you want to use a different time zone you need to adjust the `TZ` variable for all Docker containers. 
+Assuming you want to run the MongoDB container in Berlin time zone, then the configuration for that 
+container in the `versioneye-base.yml` would look like this: 
+
+```
+mongodb:
+  image: versioneye/mongodb:3.4
+  container_name: mongodb
+  restart: always
+  environment:
+    TZ: Europe/Berlin
+```
+
+The last 2 lines in the code example above set the time zone. After each change in `versioneye-base.yml` and `docker-compose.yml` the Docker containers need to be re started.
 
 ## Logging
 
