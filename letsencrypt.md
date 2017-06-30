@@ -1,7 +1,7 @@
 # LetsEncrypt Certs
 
 
-To generate or renewe the SSL certificats via [letsencrypt](https://letsencrypt.org) the domain must be accessible from the internet. The webserver for the domain must be able to serve static assets. The letsencrypt tool will generate a random file in the root directory of the domain. The generated random file must be accessible from the Internet to verify the owner ship of the domain. For Nginx the configuration of the domain can look like this: 
+To generate or renewe the SSL certificats via [letsencrypt](https://letsencrypt.org) the domain must be accessible from the internet. The webserver for the domain must be able to serve static assets. The letsencrypt tool will generate a random file in the root directory of the domain. The generated random file must be accessible from the Internet to verify the owner ship of the domain. For Nginx the configuration of the domain in `/etc/nginx/conf.d/default.conf` can look like this: 
 
 ```
 server {
