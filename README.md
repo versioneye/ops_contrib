@@ -242,6 +242,8 @@ sudo service nginx restart
 
 Now the VersionEye web app should be available on port 80.
 
+Here is described how to setup [Nginx with SSL certificates from letsencrypt](https://github.com/versioneye/ops_contrib/blob/master/letsencrypt.md). 
+
 Here are some [Ansible playbooks](https://github.com/versioneye/ops_contrib/tree/master/nginx/ansible)
 which is automate this steps and contain a role for setting up Nginx with an SSL certificate.
 
