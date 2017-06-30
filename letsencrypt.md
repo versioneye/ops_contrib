@@ -13,7 +13,7 @@ server {
 }
 ```
 
-With that the Nginx server will serve static files from the `/var/www` directory for the domain `www.versioneye.com`. Now the certificates can be generate with this command: 
+With that the Nginx server will serve static files from the `/var/www` directory for the domain `www.versioneye.com`. Now the certificates can be generated with this command: 
 
 ```
 sudo letsencrypt certonly -a webroot --webroot-path=/var/www/html -d www.versioneye.com
