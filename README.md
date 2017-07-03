@@ -16,6 +16,7 @@ This repository describes how to fetch, start, stop and monitor the VersionEye D
 - [Start the VersionEye containers](#start-the-versioneye-containers)
 - [Stop the VersionEye containers](#stop-the-versioneye-containers)
 - [Use Nginx as proxy](#use-nginx-as-proxy)
+- [SSL](#ssl)
 - [Configure cron jobs for crawling](#configure-cron-jobs-for-crawling)
 - [Timezone](#timezone)
 - [Logging](#logging)
@@ -242,6 +243,11 @@ sudo service nginx restart
 
 Now the VersionEye web app should be available on port 80.
 
+## SSL 
+
+By default the web application is running on port 8080 and the API on port 9090. 
+Any webserver can be used as proxy for those ports and any webserver in front of it can be used for SSL termination. 
+By default we are using Nginx for this job. 
 Here is described how to setup [Nginx with SSL certificates from letsencrypt](https://github.com/versioneye/ops_contrib/blob/master/letsencrypt.md). 
 
 Here are some [Ansible playbooks](https://github.com/versioneye/ops_contrib/tree/master/nginx/ansible)
