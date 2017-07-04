@@ -106,7 +106,9 @@ crawlj:
   environment:
     TZ: Europe/London
   # volumes:
-  # - /mnt/logs:/mnt/logs
+  #  - /mnt/logs:/mnt/logs
+  #  - /mnt/ops_contrib/certs/:/certs
+  # command: "/certs/import_to_crawlj.sh"
   external_links:
    - rabbitmq:rm
    - memcached:mc
@@ -116,12 +118,14 @@ crawlj:
 # Java crawler worker. Performs the hard work!
 crawlj_worker:
   image: versioneye/crawlj_worker:${VERSION_CRAWLJ_WORKER}
-  #container_name: crawlj_worker      # Comment in if you don't want to scale the worker
+  #container_name: crawlj_worker  # Comment in if you don't want to scale the worker
   restart: always
   environment:
     TZ: Europe/London
   # volumes:
-  # - /mnt/logs:/mnt/logs
+  #  - /mnt/logs:/mnt/logs
+  #  - /mnt/ops_contrib/certs/:/certs
+  # command: "/certs/import_to_crawlj_worker.sh"
   external_links:
    - rabbitmq:rm
    - memcached:mc
