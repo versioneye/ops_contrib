@@ -13,7 +13,7 @@ To make the Java runtime trust the certificate, it needs to be imported into the
 
 ### Step 1 - Get the certificate into your browser store
 
-Browse to your application server using SSL. In pretty much all Browsers it is possible to export the site certificate. Here is described how it works in Firefox. 
+Browse to your application server using SSL. In pretty much all Browsers it is possible to export the site certificate. Here is described how to download the VersionEye certificate in Firefox. 
 
 ![Browse to the site](images/01_export_certificate.png)
 
