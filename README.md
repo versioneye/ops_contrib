@@ -248,14 +248,28 @@ Now the VersionEye web app should be available on port 80.
 By default the web application is running on port 8080 and the API on port 9090. 
 Any webserver can be used as proxy for those ports and any webserver in front of it can be used for SSL termination. 
 By default we are using Nginx for this job. 
-Here is described how to setup [Nginx with SSL certificates from letsencrypt](https://github.com/versioneye/ops_contrib/blob/master/letsencrypt.md). 
+Here is described how to setup [Nginx with SSL certificates from letsencrypt](letsencrypt.md). 
 
-Here are some [Ansible playbooks](https://github.com/versioneye/ops_contrib/tree/master/nginx/ansible)
+Here are some [Ansible playbooks](nginx/ansible)
 which is automate this steps and contain a role for setting up Nginx with an SSL certificate.
 
 ## Configure cron jobs for crawling
 
 The Docker image `versioneye/crawlj` contains the crawlers which enable you to crawl internal Maven repositories such as Sonatype Nexus, JFrog Artifactory or Apache Archiva. Inside of the Docker container the crawlers are triggered by a cron job. The crontab for that can be found [here](https://github.com/versioneye/crawl_j/blob/master/crontab_enterprise). If you want to trigger the crawlers on a different schedule you have to mount another crontab file into the Docker container to `/mnt/crawl_j/crontab_enterprise`.
+
+## Importing site certificate into Java Runtime
+
+The crawlj container(s) are running on Java. When the Java process attempts to connect to a server that has an invalid or self signed certificate, such as an Maven repository server (Artifactory or Sonatype) in a development environment, there might be the following exception:
+
+```
+javax.net.ssl.SSLHandshakeException: 
+sun.security.validator.ValidatorException: PKIX path building failed:
+sun.security.provider.certpath.SunCertPathBuilderException: 
+unable to find valid certification path to requested target
+```
+
+To make the Java runtime trust the certificate, it needs to be imported into the JRE certificate store. Here is a detailed tutorial for importing the site certificate into the crawlj container: [Import site certs](import_site_cert.md)
+
 
 ## Timezone
 
