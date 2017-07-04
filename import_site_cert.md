@@ -63,7 +63,7 @@ By default the keystore is protected by a password, which is by default `changei
 
 The steps above can be executed manually but if the Docker container is restarted they have to be executed again. That's why it's better to get the job done within the Docker Composer config. 
 
-Place your DER certificate into the `certs` directory in the root of the `ops_contrib` (this) directory. There are 2 shell scripts in the `certs` directory which are deleteing and importing a certificate. In both scripts the `alias` and the file path to the certiticate needs to be adjusted.
+Place your DER certificate into the `certs` directory in the root of the `ops_contrib` (this) directory. There are 2 shell scripts in the `certs` directory which are deleting and importing a certificate. In both scripts the `alias` and the file path to the certiticate needs to be adjusted.
 
 Then the directory can be mounted into the `crawlj` Docker container and the default `RUN` command can be overwritten with `command`. Here an example: 
 

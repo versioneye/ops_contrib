@@ -18,6 +18,7 @@ This repository describes how to fetch, start, stop and monitor the VersionEye D
 - [Use Nginx as proxy](#use-nginx-as-proxy)
 - [SSL](#ssl)
 - [Configure cron jobs for crawling](#configure-cron-jobs-for-crawling)
+- [Importing site certificate into Java Runtime](#importing_site_certificate_into_java_runtime)
 - [Timezone](#timezone)
 - [Logging](#logging)
 - [Monitoring](#monitoring)
