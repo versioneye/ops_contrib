@@ -236,14 +236,14 @@ to the last line of the `./versioneye-update` script.
 We are publishing new Docker images almost every day! 
 If you want to keep your instance always up-to-date then it's 
 recommended to run the `./versioneye-update` script once a day via a cron job. 
-Iff you are logged in as admin to the VersionEye server, run this coammand: 
+If you are logged in as admin to the VersionEye server, run this coammand: 
 
 ```
 crontab -e
 ```
 
 That will open the crontab file for root with the default editor. Then add this line 
-to the end of the file: 
+to the end of the file and save the file: 
 
 ```
 1 0 * * * /opt/ops_contrib/versioneye-update >/dev/null 2>&1
