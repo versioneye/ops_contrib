@@ -15,6 +15,8 @@ This repository describes how to fetch, start, stop and monitor the VersionEye D
 - [Start backend services for VersionEye](#start-backend-services-for-VersionEye)
 - [Start the VersionEye containers](#start-the-versioneye-containers)
 - [Stop the VersionEye containers](#stop-the-versioneye-containers)
+- [Clean up unused Docker images](#clean-up-unused-docker-images)
+- [Automated updates](automated-updates)
 - [Use Nginx as proxy](#use-nginx-as-proxy)
 - [SSL](#ssl)
 - [Configure cron jobs for crawling](#configure-cron-jobs-for-crawling)
@@ -217,6 +219,39 @@ With this command the VersionEye containers can be stopped:
 
 That will stop the VersionEye containers, but not the backend services.
 
+## Clean up unused Docker images
+
+The script `./versioneye-update` will always download the newest Docker images from VersionEye. 
+But it doesn't remove old Docker images. This command is removing ALL Docker images which are currently not active running: 
+
+```
+docker rmi `docker images -aq`
+```
+
+If VersionEye is the only application running on the Host, then this command can be added 
+to the last line of the `./versioneye-update` script. 
+
+## Automated updates
+
+We are publishing new Docker images almost every day! 
+If you want to keep your instance always up-to-date then it's 
+recommended to run the `./versioneye-update` script once a day via a cron job. 
+Iff you are logged in as admin to the VersionEye server, run this coammand: 
+
+```
+crontab -e
+```
+
+That will open the crontab file for root with the default editor. Then add this line 
+to the end of the file: 
+
+```
+1 0 * * * /opt/ops_contrib/versioneye-update >/dev/null 2>&1
+```
+
+That will run the `./versioneye-update` script every day 1 minute after midnight. 
+If the absolute path to the `./versionye-update` script is not correct then you need to adjust it! 
+
 ## Use Nginx as proxy
 
 By default the VersionEye Web App is running on port 8080 and the API on port 9090.
@@ -295,6 +330,11 @@ mongodb:
 ```
 
 The last 2 lines in the code example above set the time zone. After each change in `versioneye-base.yml` and `docker-compose.yml` the Docker containers need to be re started.
+
+**The changes above let the whole application run in a certain time zone. 
+However, MongoDB is storing Dates always in UTC. Log in to VersionEye as admin and pick 
+the same time zone in the `Global Settings` as set in the docker compose files. With that
+tha application will convert UTC date/times from MongoDB to the selected target time zone.**
 
 ## Logging
 
