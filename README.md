@@ -246,7 +246,7 @@ That will open the crontab file for root with the default editor. Then add this 
 to the end of the file and save the file: 
 
 ```
-1 0 * * * /opt/ops_contrib/versioneye-update >/dev/null 2>&1
+1 0 * * * cd /opt/ops_contrib/ && ./versioneye-update >/dev/null 2>&1
 ```
 
 That will run the `./versioneye-update` script every day 1 minute after midnight. 
