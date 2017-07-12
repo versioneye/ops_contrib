@@ -47,6 +47,8 @@ rails_app:
    - "8080:8080"
   # volumes:
   # - /mnt/logs:/app/log
+  # dns: 192.168.1.4
+  # net: host # With this the container is running on the same network as the host
   external_links:
    - rabbitmq:rm
    - memcached:mc
@@ -64,6 +66,8 @@ rails_api:
    - "9090:9090"
   # volumes:
   # - /mnt/logs:/app/log
+  # dns: 192.168.1.4
+  # net: host # With this the container is running on the same network as the host
   external_links:
    - rabbitmq:rm
    - memcached:mc
@@ -79,6 +83,8 @@ tasks:
     TZ: Europe/London
   # volumes:
   # - /mnt/logs:/app/log
+  # dns: 192.168.1.4
+  # net: host # With this the container is running on the same network as the host
   external_links:
    - rabbitmq:rm
    - memcached:mc
@@ -92,6 +98,8 @@ crawlr:
   restart: always
   # volumes:
   # - /mnt/logs:/mnt/logs
+  # dns: 192.168.1.4
+  # net: host # With this the container is running on the same network as the host
   external_links:
    - rabbitmq:rm
    - memcached:mc
@@ -109,6 +117,8 @@ crawlj:
   #  - /mnt/logs:/mnt/logs
   #  - /mnt/ops_contrib/certs/:/certs
   # command: "/certs/import_to_crawlj.sh"
+  # dns: 192.168.1.4
+  # net: host # With this the container is running on the same network as the host
   external_links:
    - rabbitmq:rm
    - memcached:mc
@@ -126,6 +136,8 @@ crawlj_worker:
   #  - /mnt/logs:/mnt/logs
   #  - /mnt/ops_contrib/certs/:/certs
   # command: "/certs/import_to_crawlj_worker.sh"
+  # dns: 192.168.1.4
+  # net: host # With this the container is running on the same network as the host
   external_links:
    - rabbitmq:rm
    - memcached:mc
