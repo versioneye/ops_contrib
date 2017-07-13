@@ -107,7 +107,7 @@ You might still want to leave `8080` and `9090` open if you still want direct ac
 
 ## Environment dependencies
 
-The scripts in this repository are all tested with Docker for Linux on Ubuntu 14.04. This instalation guide requires that you have the following libraries installed:
+The scripts in this repository are all tested with Docker for Linux on Ubuntu 14.04. This installation guide requires that you have the following libraries installed:
  - jq
  - docker
  - docker-compose
