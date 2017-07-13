@@ -2,7 +2,7 @@
 
 This repo contains scripts to install & operate [VersionEye](https://www.versioneye.com) as on prem. installation. Everybody can contribute!
 
-The software for [VersionEye](https://www.versioneye.com) is shipped in multiple [Docker](https://www.docker.com/) images. VersionEye is a distributed system which is a composition of at least 8 Docker images. The Docker images and there relations to each other are described in docker compose files.
+The software for [VersionEye](https://www.versioneye.com) is shipped in multiple [Docker](https://www.docker.com/) images. VersionEye is a distributed system which is a composition of at least 8 Docker images. The Docker images and their relations to each other are described in docker compose files.
 This repository describes how to fetch, start, stop and monitor the VersionEye Docker images.
 
 ## Table of Contents
