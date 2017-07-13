@@ -77,7 +77,7 @@ We recommend a minimum resource configuration of:
  - 8GB of RAM
  - 25GB of storage
 
-This setup will allow you to get VersionEye of the ground successfully. It's the equivalent to an [AWS `t2-large`](https://aws.amazon.com/ec2/instance-types/). Some customers are using VersionEye to monitor 1500 internal software projects. They are running the software with this harware setup: 
+This setup will allow you to get VersionEye of the ground successfully. It's the equivalent to an [AWS `t2-large`](https://aws.amazon.com/ec2/instance-types/). Some customers are using VersionEye to monitor 1500 internal software projects. They are running the software with this hardware setup: 
 
  - 4 vCPUS
  - 16 GB of RAM
