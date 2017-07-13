@@ -62,7 +62,7 @@ That will create a new virtual machine image in VirtualBox and install the Versi
 on it. Dependening on your internet connection it can take a couple minutes. If everything is done
 you can reach the VersionEye application under `http://127.0.0.1:7070`.
 
-**But keep it mind that this Vagrant setup is just for development and testing. It's not a production setup! If you shut down the Vagrant box it might be that you loose data!**
+**But keep it mind that this Vagrant setup is just for development and testing. It's not a production setup! If you shut down the Vagrant box, you might lose data!**
 
 If you don't
 want to use Vagrant and you are interested in running the Docker containers natively
@@ -77,7 +77,7 @@ We recommend a minimum resource configuration of:
  - 8GB of RAM
  - 25GB of storage
 
-This setup will allow you to get VersionEye of the ground successfully. It's the equivalent to an [AWS `t2-large`](https://aws.amazon.com/ec2/instance-types/). Some customers are using VersionEye to monitor 1500 internal software projects. They are running the software with this harware setup: 
+This setup will allow you to get VersionEye of the ground successfully. It's the equivalent to an [AWS `t2-large`](https://aws.amazon.com/ec2/instance-types/). Some customers are using VersionEye to monitor 1500 internal software projects. They are running the software with this hardware setup: 
 
  - 4 vCPUS
  - 16 GB of RAM
@@ -107,7 +107,7 @@ You might still want to leave `8080` and `9090` open if you still want direct ac
 
 ## Environment dependencies
 
-The scripts in this repository are all tested with Docker for Linux on Ubuntu 14.04. This instalation guide requires that you have the following libraries installed:
+The scripts in this repository are all tested with Docker for Linux on Ubuntu 14.04. This installation guide requires that you have the following libraries installed:
  - jq
  - docker
  - docker-compose
