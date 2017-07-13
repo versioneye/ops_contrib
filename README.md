@@ -62,7 +62,7 @@ That will create a new virtual machine image in VirtualBox and install the Versi
 on it. Dependening on your internet connection it can take a couple minutes. If everything is done
 you can reach the VersionEye application under `http://127.0.0.1:7070`.
 
-**But keep it mind that this Vagrant setup is just for development and testing. It's not a production setup! If you shut down the Vagrant box it might be that you loose data!**
+**But keep it mind that this Vagrant setup is just for development and testing. It's not a production setup! If you shut down the Vagrant box, you might lose data!**
 
 If you don't
 want to use Vagrant and you are interested in running the Docker containers natively
