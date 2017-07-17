@@ -255,7 +255,7 @@ If the absolute path to the `./versionye-update` script is not correct then you 
 ## Use Nginx as proxy
 
 By default the VersionEye Web App is running on port 8080 and the API on port 9090.
-It makes sense to use a webserver in fornt of it on port 80, which does forward the
+It makes sense to use a webserver in front of it on port 80, which does forward the
 requests to port 8080 and 9090. Beside that the webserver can be used for SSL
 termination. On Ubuntu the Nginx webserver can be installed like this:
 
