@@ -21,6 +21,7 @@ This repository describes how to fetch, start, stop and monitor the VersionEye D
 - [SSL](#ssl)
 - [Configure cron jobs for crawling](#configure-cron-jobs-for-crawling)
 - [Importing site certificate into Java Runtime](#importing-site-certificate-into-java-runtime)
+- [Importing site certificate into Ruby Runtime](#importing-site-certificate-into-ruby-runtime)
 - [Timezone](#timezone)
 - [Logging](#logging)
 - [Monitoring](#monitoring)
@@ -306,6 +307,37 @@ unable to find valid certification path to requested target
 
 To make the Java runtime trust the certificate, it needs to be imported into the JRE certificate store. Here is a detailed tutorial for importing the site certificate into the crawlj container: [Import site certs](import_site_cert.md)
 
+## Importing site certificate into Ruby Runtime
+
+The VersionEye Web App, API and background tasks are running on a Ruby runtime. If the Web App should access an LDAP server with a self signed certificate then that certificate has to be made available for the Ruby runtime. Ruby is using the native openssl C library for SSL connections. If a self signed certificate should be made available for the Ruby runtime then the certificate has to be placed as `*.crt` file in the `/usr/local/share/ca-certificates` directory inside of the Docker container.
+
+It is recommended to hold the certificates in a directory on the Host system. For example in `/certs`. That directory can be mounted into the Docker container. Here is example for the `versioneye/rails_app` Docker container: 
+
+```
+rails_app:
+  image: versioneye/rails_app:${VERSION_RAILS_APP}
+  container_name: rails_app
+  restart: always
+  environment:
+    TZ: Europe/London
+  ports:
+   - "8080:8080"
+  volumes:
+   - /certs:/usr/local/share/ca-certificates
+  external_links:
+   - rabbitmq:rm
+   - memcached:mc
+   - elasticsearch:es
+   - mongodb:db
+```
+
+In the volumes seciton above the directory `/certs` is mounted to `/usr/local/share/ca-certificates` inside of the Docker container. This configuration can be applied to this Docker containers: 
+
+ - versioneye/rails_app
+ - versioneye/rails_api
+ - versioneye/tasks
+ 
+This change in the configuration requires a restart of the Docker containers. 
 
 ## Timezone
 
