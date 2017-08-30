@@ -39,12 +39,13 @@ mongodb:
   #  - /mnt/mongodb:/data
 
 # Fuzzy search
-elasticsearch:
-  image: reiz/elasticsearch:0.9.1-1
-  container_name: elasticsearch
-  restart: always
-  environment:
-    TZ: Europe/London
+#  - Not required for VersionEye Enterprise
+# elasticsearch:
+#   image: reiz/elasticsearch:0.9.1-1
+#   container_name: elasticsearch
+#   restart: always
+#   environment:
+#     TZ: Europe/London
   # net: host # With this the container is running on the same network as the host
   # ports:
   # - "9200:9200" # With this the service is exposed on the host to the network

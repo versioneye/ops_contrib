@@ -52,7 +52,6 @@ rails_app:
   external_links:
    - rabbitmq:rm
    - memcached:mc
-   - elasticsearch:es
    - mongodb:db
 
 # VersionEye API
@@ -71,7 +70,6 @@ rails_api:
   external_links:
    - rabbitmq:rm
    - memcached:mc
-   - elasticsearch:es
    - mongodb:db
 
 # Background jobs triggered by WebApp & API + scheduled jobs
@@ -88,7 +86,6 @@ tasks:
   external_links:
    - rabbitmq:rm
    - memcached:mc
-   - elasticsearch:es
    - mongodb:db
 
 # Ruby crawlers
@@ -103,7 +100,6 @@ crawlr:
   external_links:
    - rabbitmq:rm
    - memcached:mc
-   - elasticsearch:es
    - mongodb:db
 
 # Java crawler indexer
@@ -122,7 +118,6 @@ crawlj:
   external_links:
    - rabbitmq:rm
    - memcached:mc
-   - elasticsearch:es
    - mongodb:db
 
 # Java crawler worker. Performs the hard work!
@@ -141,5 +136,4 @@ crawlj_worker:
   external_links:
    - rabbitmq:rm
    - memcached:mc
-   - elasticsearch:es
    - mongodb:db
