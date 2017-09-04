@@ -460,7 +460,7 @@ for MongoDB. To create a dump get a shell on the running MongoDB container like 
 docker exec -it mongodb bash
 ```
 
-Than navigate to the `/data` directory and create a dump with this command:
+Then navigate to the `/data` directory and create a dump with this command:
 
 ```
 mongodump --db veye_enterprise
