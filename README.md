@@ -453,7 +453,7 @@ mongodb:
    - /mnt/mongodb:/data
 ```
 
-In the above configuration we use `/mnt/mongodb` on the host system to persiste the data
+In the above configuration we use `/mnt/mongodb` on the host system to persist the data
 for MongoDB. To create a dump get a shell on the running MongoDB container like this:
 
 ```
