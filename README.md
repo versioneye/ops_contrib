@@ -411,7 +411,7 @@ That will display in real time how much CPU, RAM and IO each containers is using
 ## RabbitMQ Management Plugin
 
 By default the RabbitMQ container is running without a UI. But if the management plugin
-is enabled a Web UI can be used to watch and control the queues. Do do that you need
+is enabled a Web UI can be used to watch and control the queues. To do that you need
 to get a shell on the running rabbitmq container:
 
 ```
