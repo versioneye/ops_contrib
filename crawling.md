@@ -47,3 +47,25 @@ docker run --name crawlj_ext
 ```
 
 The file `/mnt/crontab_enterprise` is the `crontab_enterprise` file from this directory.
+
+It is mandatory that a directory is mounted into `/mnt/logs`. If that directory doesn't exist the Java process will exit with an error code.
+
+In the Docker container there are several cron jobs which are starting the Java crawling processes. If you want to start the crawling process immediately, get a bash on the running container: 
+
+```
+docker exec -it crawlj_ext bash
+```
+
+And take a look to the cron jobs: 
+
+```
+crontab -l
+```
+
+You can start the Maven Central crawler immediately with this command, insode of the running Docker container: 
+
+```
+M2=/opt/apache-maven-3.0.5/bin && M2_HOME=/opt/apache-maven-3.0.5 && /opt/apache-maven-3.0.5/bin/mvn -f /mnt/maven-indexer/pom.xml crawl:central
+```
+
+In paralle you can check the log files on the host to see the current status. 
