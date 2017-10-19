@@ -411,7 +411,7 @@ That will display in real time how much CPU, RAM and IO each containers is using
 ## RabbitMQ Management Plugin
 
 By default the RabbitMQ container is running without a UI. But if the management plugin
-is enabled a Web UI can be used to watch and control the queues. Do do that you need
+is enabled a Web UI can be used to watch and control the queues. To do that you need
 to get a shell on the running rabbitmq container:
 
 ```
@@ -453,14 +453,14 @@ mongodb:
    - /mnt/mongodb:/data
 ```
 
-In the above configuration we use `/mnt/mongodb` on the host system to persiste the data
+In the above configuration we use `/mnt/mongodb` on the host system to persist the data
 for MongoDB. To create a dump get a shell on the running MongoDB container like this:
 
 ```
 docker exec -it mongodb bash
 ```
 
-Than navigate to the `/data` directory and create a dump with this command:
+Then navigate to the `/data` directory and create a dump with this command:
 
 ```
 mongodump --db veye_enterprise
