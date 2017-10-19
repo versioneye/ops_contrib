@@ -1,3 +1,16 @@
+ES_PORT_9200_TCP_PORT=9200
+ES_PORT_9200_TCP_ADDR=172.17.0.5
+MC_PORT_11211_TCP_PORT=11211
+MC_PORT_11211_TCP_ADDR=172.17.0.3
+RM_PORT_5672_TCP_PORT=5672
+RM_PORT_5672_TCP_ADDR=172.17.0.4
+DB_PORT_27017_TCP_PORT=27017
+DB_PORT_27017_TCP_ADDR=172.17.0.2
+RAILS_ENV=enterprise
+
+
+ELASTICSEARCH_PRODUCT_INDEX=product
+ELASTICSEARCH_USER_INDEX=user
 
 SHELL=/bin/bash
 PATH=/bin:/usr/bin/:/usr/local/bin:/opt/mvn/bin
@@ -6,8 +19,6 @@ M2=/opt/mvn/bin
 MAVEN_OPTS=-Djava.net.preferIPv4Stack=true
 JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
-ELASTICSEARCH_PRODUCT_INDEX=product
-ELASTICSEARCH_USER_INDEX=user
 
 * * * * * echo "VersionEye CrawlJ cron job is running" >> /var/log/cron.log
 

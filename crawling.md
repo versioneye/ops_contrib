@@ -28,6 +28,8 @@ docker run --name crawlj_worker_ext
 
 That should start a Docker container with 8 Java processes. 4 HTML consumers and 4 Index consumers. The processes are controlled by supervisord. 
 
+It is mandatory that a directory is mounted into `/mnt/logs`. If that directory doesn't exist the Java process will exit with an error code.
+
 ## Start the producers
 
 The producers can be started like this: 
@@ -40,11 +42,8 @@ docker run --name crawlj_ext
   --link memcached:mc 
   --link rabbitmq:rm 
   -v /mnt/logs:/mnt/logs 
-  -v /mnt/crontab_production:/mnt/crawl_j/crontab_production
-  -d versioneye/crawlj:2.4.44 /mnt/crawl_j/run_production.sh
+  -v /mnt/crontab_enterprise:/mnt/crawl_j/crontab_enterprise
+  -d versioneye/crawlj:2.4.44
 ```
 
-The file `/mnt/crontab_production` is the `crontab_production` file from this directory.
-
-
-
+The file `/mnt/crontab_enterprise` is the `crontab_enterprise` file from this directory.
