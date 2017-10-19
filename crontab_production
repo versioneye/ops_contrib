@@ -1,0 +1,27 @@
+
+SHELL=/bin/bash
+PATH=/bin:/usr/bin/:/usr/local/bin:/opt/mvn/bin
+M2_HOME=/opt/mvn
+M2=/opt/mvn/bin
+MAVEN_OPTS=-Djava.net.preferIPv4Stack=true
+JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+
+ELASTICSEARCH_PRODUCT_INDEX=product
+ELASTICSEARCH_USER_INDEX=user
+
+* * * * * echo "VersionEye CrawlJ cron job is running" >> /var/log/cron.log
+
+# Clear Maven indexes / caches and force reload!
+00 1  * * * rm -Rf /mnt/crawl_indexes/*;
+
+# Crawlers rely on maven-index!
+14 1  * * * /bin/bash -l -c 'M2=/opt/apache-maven-3.0.5/bin && M2_HOME=/opt/apache-maven-3.0.5 && /opt/apache-maven-3.0.5/bin/mvn -f /mnt/maven-indexer/pom.xml crawl:central'
+15 1  * * * /bin/bash -l -c 'M2=/opt/apache-maven-3.0.5/bin && M2_HOME=/opt/apache-maven-3.0.5 && /opt/apache-maven-3.0.5/bin/mvn -f /mnt/maven-indexer/pom.xml crawl:clojars'
+18 1  * * * /bin/bash -l -c 'M2=/opt/apache-maven-3.0.5/bin && M2_HOME=/opt/apache-maven-3.0.5 && /opt/apache-maven-3.0.5/bin/mvn -f /mnt/maven-indexer/pom.xml crawl:nuxeo-public-releases'
+15 3  * * * /bin/bash -l -c 'M2=/opt/apache-maven-3.0.5/bin && M2_HOME=/opt/apache-maven-3.0.5 && /opt/apache-maven-3.0.5/bin/mvn -f /mnt/maven-indexer/pom.xml crawl:jenkins'
+
+# Crawlers rely on the HTML interface!
+20 1  * * * /bin/bash -l -c '/opt/mvn/bin/mvn -f /mnt/crawl_j/versioneye_maven_crawler/pom.xml crawl:conjars'
+24 1  * * * /bin/bash -l -c '/opt/mvn/bin/mvn -f /mnt/crawl_j/versioneye_maven_crawler/pom.xml crawl:redhat'
+26 1  * * * /bin/bash -l -c '/opt/mvn/bin/mvn -f /mnt/crawl_j/versioneye_maven_crawler/pom.xml crawl:everpeace'
+28 1  * * * /bin/bash -l -c '/opt/mvn/bin/mvn -f /mnt/crawl_j/versioneye_maven_crawler/pom.xml crawl:thenewmotion'
