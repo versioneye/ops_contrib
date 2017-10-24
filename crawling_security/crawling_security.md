@@ -11,7 +11,7 @@ Supervisord is the master process and is managing other processes inside of the 
 
 ## Start the consumers
 
-The consumer processes can be started like this: 
+The consumer processes can be started like this:
 
 ```
 docker run --name security_workers --restart=always --env RAILS_ENV=enterprise --link mongodb:db --link elasticsearch:es --link memcached:mc --link rabbitmq:rm -v /mnt/logs:/mnt/logs -v /opt/docker_security_worker/supervisord_workers.conf:/etc/supervisord.conf -d versioneye/security:0.11.13
@@ -23,7 +23,7 @@ This container will run multiple RabbitMQ consumers. A consumer is waiting for a
 
 ## Start the producers
 
-The producers can be started like this: 
+The producers can be started like this:
 
 ```
 docker run --name security_scheduler --restart=always --env RAILS_ENV=enterprise --link mongodb:db --link elasticsearch:es --link memcached:mc --link rabbitmq:rm -v /mnt/logs:/mnt/logs -v /opt/docker_security_worker/supervisord_scheduler.conf:/etc/supervisord.conf -d versioneye/security:0.11.13
