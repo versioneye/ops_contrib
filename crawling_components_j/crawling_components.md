@@ -28,7 +28,7 @@ It is mandatory that a directory is mounted into `/mnt/logs`. If that directory 
 The producers can be started like this: 
 
 ```
-docker run --name crawlj_ext --restart=always --link mongodb:db --link elasticsearch:es --link memcached:mc --link rabbitmq:rm -v /mnt/logs:/mnt/logs -v /mnt/crontab_enterprise:/mnt/crawl_j/crontab_enterprise -d versioneye/crawlj:2.4.44
+docker run --name crawlj_ext --restart=always --link mongodb:db --link memcached:mc --link rabbitmq:rm -v /mnt/logs:/mnt/logs -v /mnt/crontab_enterprise:/mnt/crawl_j/crontab_enterprise -d versioneye/crawlj:2.4.44
 ```
 
 The file `/mnt/crontab_enterprise` is the `crontab_enterprise` file from this directory.
