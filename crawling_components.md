@@ -68,4 +68,4 @@ You can start the Maven Central crawler immediately with this command, insode of
 M2=/opt/apache-maven-3.0.5/bin && M2_HOME=/opt/apache-maven-3.0.5 && /opt/apache-maven-3.0.5/bin/mvn -f /mnt/maven-indexer/pom.xml crawl:central
 ```
 
-In paralle you can check the log files on the host to see the current status. 
+In parallel you can check the log files on the host to see the current status. 
