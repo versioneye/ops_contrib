@@ -35,8 +35,8 @@ mongodb:
   # net: host # With this the container is running on the same network as the host
   ports:
   - "27017:27017" # With this the service is exposed on the host to the network
-  # volumes:
-  #  - /mnt/mongodb:/data
+  volumes:
+   - /Users/reiz/mongo_data/:/data
 
 # Fuzzy search
 elasticsearch:
@@ -51,7 +51,7 @@ elasticsearch:
   # volumes:
   #  - /mnt/elasticsearch:/data
 
-# AMQ Message Server
+# # AMQ Message Server
 rabbitmq:
   image: versioneye/rabbitmq:3.6.10-1
   container_name: rabbitmq
@@ -62,7 +62,7 @@ rabbitmq:
   ports:
   - "5672:5672" # With this the service is exposed on the host to the network
 
-# Cache
+# # Cache
 memcached:
   image: versioneye/memcached:1.4.33-1ubuntu2
   container_name: memcached

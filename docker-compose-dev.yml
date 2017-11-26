@@ -1,0 +1,105 @@
+#
+# The MIT License (MIT)
+#
+# Copyright (c) 2016 Sascha Vogt <sascha@vogt-neuenbuerg.de>
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+#
+
+# ATTENTION: Make sure to have the "versioneye-base.yml" already started, as it contains
+#            the base containers (rabbitmq, memcached, elasticsearch and mongodb) which
+#            are linked here!
+#
+# $COMPOSE_PROJECT_NAME sets the prefix for all VMs. Should be set to make the names unique.
+# If you want to scale a particular container, comment out the "container_name" property!
+# The following environment variables have to be set to the current versions you want to use:
+#     $VERSION_RAILS_APP
+#     $VERSION_RAILS_API
+#     $VERSION_TASKS
+#     $VERSION_CRAWLJ
+#     $VERSION_CRAWLJ_WORKER
+
+# Web Application
+# rails_app:
+#   image: versioneye/rails_app:${VERSION_RAILS_APP}
+#   container_name: rails_app
+#   restart: always
+#   ports:
+#    - "8080:8080"
+#   # volumes:
+#   # - /mnt/logs:/app/log
+#   external_links:
+#    - rabbitmq:rm
+#    - memcached:mc
+#    - elasticsearch:es
+#    - mongodb:db
+
+# # VersionEye API
+# rails_api:
+#   image: versioneye/rails_api:${VERSION_RAILS_API}
+#   container_name: rails_api
+#   restart: always
+#   ports:
+#    - "9090:9090"
+#   # volumes:
+#   # - /mnt/logs:/app/log
+#   external_links:
+#    - rabbitmq:rm
+#    - memcached:mc
+#    - elasticsearch:es
+#    - mongodb:db
+
+# Background jobs triggered by WebApp & API + scheduled jobs
+tasks:
+  image: versioneye/tasks:2.14.41
+  container_name: tasks
+  restart: always
+  # volumes:
+  # - /mnt/logs:/app/log
+  external_links:
+   - rabbitmq:rm
+   - memcached:mc
+   - elasticsearch:es
+   - mongodb:db
+
+# Java crawler indexer
+# crawlj:
+#   image: versioneye/crawlj:${VERSION_CRAWLJ}
+#   container_name: crawlj
+#   restart: always
+#   # volumes:
+#   # - /mnt/logs:/mnt/logs
+#   external_links:
+#    - rabbitmq:rm
+#    - memcached:mc
+#    - elasticsearch:es
+#    - mongodb:db
+
+# # Java crawler worker. Performs the hard work!
+# crawlj_worker:
+#   image: versioneye/crawlj_worker:${VERSION_CRAWLJ_WORKER}
+#   #container_name: crawlj_worker      # Comment in if you don't want to scale the worker
+#   restart: always
+#   # volumes:
+#   # - /mnt/logs:/mnt/logs
+#   external_links:
+#    - rabbitmq:rm
+#    - memcached:mc
+#    - elasticsearch:es
+#    - mongodb:db
