@@ -36,7 +36,7 @@ volumes:
 
 Make sure that the directory `/mnt/logs` exist on your host or adjust it to another existing directory.
 
-For the `crawlj_scheduler_ext` Container it is absolutely mandatory that the `crontab_enterprise` file from this directory is mounted. Mounting files into a Docker Container works only with absolute paths. Adjust the path to your `crawlj_scheduler_ext` file on the host system:
+For the `crawlj_scheduler_ext` Container it is absolutely mandatory that the `crontab_enterprise` file from this directory is mounted. Mounting files into a Docker Container works only with absolute paths. Adjust the path to your `crontab_enterprise ` file on the host system:
 
 ```
 volumes:
@@ -134,4 +134,11 @@ docker-compose scale crawlj_worker_ext=5
 That would start 5 instances of the `crawlingcomponentsj_crawlj_worker_ext_X` Container. In that case we would have 5 times more workers than by default. 
 Keep in mind that by doing that more hardware resources are needed/consumed. 
 
+## Note
 
+The initial crawl can take up to 3 days or more. That depends very much 
+on your internet connection and the hardware you are running the crawlers. 
+In the first crawl ALL pom.xml files from Maven Central are downloaded and parsed. That are a couple Million XML files. 
+
+After the initial crawl is finished, the daily crawls take usually just 2 to 4 hours. The later crawls only download and parse XML files which are not yet 
+in the database. That's just the increment from the last crawl. 
