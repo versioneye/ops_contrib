@@ -26,7 +26,7 @@
 # Multiple instances of this container can be executed to scale out
 # and increase crawling speed.
 crawlj_worker_ext:
-  image: versioneye/crawlj_worker:${VERSION_RAILS_APP}
+  image: versioneye/crawlj_worker:2.4.19
   container_name: crawlj_worker_ext
   restart: always
   environment:
@@ -43,7 +43,7 @@ crawlj_worker_ext:
 # Scheduler for crawler implemented in Java.
 # Very important that only one instance of this Docker container is running!
 crawlj_scheduler_ext:
-  image: versioneye/crawlj:${VERSION_RAILS_APP}
+  image: versioneye/crawlj:2.4.48
   container_name: crawlj_scheduler_ext
   restart: always
   environment:
