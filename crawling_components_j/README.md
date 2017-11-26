@@ -16,7 +16,7 @@ The Docker image `versioneye/crawlj` contains the scheduler for the initial craw
 The consumer processes can be started like this:
 
 ```
-docker run --name crawlj_worker_ext --restart=always --link mongodb:db --link elasticsearch:es --link memcached:mc --link rabbitmq:rm -v /mnt logs:/mnt/logs -d versioneye/crawlj_worker:2.4.17
+docker run --name crawlj_worker_ext --restart=always --link mongodb:db --link elasticsearch:es --link memcached:mc --link rabbitmq:rm -v /mnt logs:/mnt/logs -d versioneye/crawlj_worker:2.4.20
 ```
 
 That should start a Docker container with 8 Java processes. 4 HTML consumers and 4 Index consumers. The processes are controlled by supervisord.
@@ -28,7 +28,7 @@ It is mandatory that a directory is mounted into `/mnt/logs`. If that directory 
 The producers can be started like this:
 
 ```
-docker run --name crawlj_ext --restart=always --link mongodb:db --link memcached:mc --link rabbitmq:rm -v /mnt/logs:/mnt/logs -v /mnt/crontab_enterprise:/mnt/crawl_j/crontab_enterprise -d versioneye/crawlj:2.4.44
+docker run --name crawlj_ext --restart=always --link mongodb:db --link memcached:mc --link rabbitmq:rm -v /mnt/logs:/mnt/logs -v /mnt/crontab_enterprise:/mnt/crawl_j/crontab_enterprise -d versioneye/crawlj:2.4.49
 ```
 
 The file `/mnt/crontab_enterprise` is the `crontab_enterprise` file from this directory.
